@@ -47,35 +47,46 @@
     </header> <!--Fin Header-->
     
     <main class="container main-shop">
-    <aside class=""> <!--Inicio Aside-->
+    <aside class="aside"> <!--Inicio Aside-->
         <div>
-            <div>
-                <label for="BuscarItem">BUSCAR</label>
+            <div class="aside__menu">
+                <label class="aside__menu-label" for="BuscarItem">
+                    <p>BUSCAR</p>
+                </label>
                 <input type="text" id="BuscarItem" placeholder="item o categoria">
             </div>
-            <div>
-                <label for="OrdenarPor">ORDENAR POR</label>
-                <select id="OrdenarPor">
-                <!--NO SE COMO LOGRAR placeholder="Mayor a menor"-->
-                <option>Mayor a menor</option>
-                <option>Menor a mayor</option>
-                <option>A-Z</option>
-                <option>Z-A</option>
+            <div  class="aside__menu">
+                <label class="aside__menu-label" for="OrdenarPor">
+                    <p>ORDENAR POR</p>
+                </label>
+                <select id="OrdenarPor" name="ordenarPor">
+                <option selected value="Mayor a menor">Mayor a menor</option>
+                <option value="Menor a mayor">Menor a mayor</option>
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
             </select>
             </div>
-            <p>PRECIO</p>
-            <div>
-                <label for="Min">MIN</label>
-                <input type="number" id="Min" placeholder="0">
-                <label for="Max">- MAX</label>
-                <input type="number" id="Max" placeholder="0">
+            <div  class="aside__menu aside__menu__precio">
+                <p>PRECIO</p>
+                <label for="min">MIN</label>
+                <input type="number" id="min" placeholder="0">
+                <label for="max">- MAX</label>
+                <input type="number" id="max" placeholder="0">
             </div>
-            <div>
+            <div class="aside__menu aside__menu__filtrar">
                 <p>FILTRAR</p>
-                <label><input type="checkbox" name="filtrar" value="nuevos">NUEVOS</label>
-                <label><input type="checkbox" name="filtrar" value="nuevos">OFERTAS</label>
-                <label><input type="checkbox" name="filtrar" value="nuevos">EDICIÓN ESPECIAL</label>
-                <label><input type="checkbox" name="filtrar" value="nuevos">FAVORITOS</label>
+                <label class="aside__menu__filtrar-label" for="filtrar_nuevos">
+                    <input type="checkbox" id="filtrar_nuevos" name="filtrar" value="nuevos">NUEVOS
+                </label>
+                <label class="aside__menu__filtrar-label" for="filtrar_ofertas">
+                    <input type="checkbox" id="filtrar_ofertas" name="filtrar" value="ofertas">OFERTAS
+                </label>
+                <label class="aside__menu__filtrar-label" for="filtrar_edicionEspecial">
+                    <input type="checkbox" id="filtrar_edicionEspecial" name="filtrar" value="edicion especial">EDICIÓN ESPECIAL
+                </label>
+                <label class="aside__menu__filtrar-label" for="filtrar_favoritos">
+                    <input type="checkbox" id="filtrar_favoritos" name="filtrar" value="favoritos">FAVORITOS
+                </label>
             </div>
         </div>
     </aside> <!--Fin Aside-->
