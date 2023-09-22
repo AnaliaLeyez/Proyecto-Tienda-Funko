@@ -1,0 +1,6 @@
+.main-shop{
+    display: grid;
+    grid-template-columns:  1fr 3fr;
+    align-items: start;
+    padding: var(--spacing-16) 0;
+}
