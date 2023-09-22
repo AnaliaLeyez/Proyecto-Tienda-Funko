@@ -17,4 +17,10 @@
     gap: var(--spacing-24);
 }
 
+@media (max-width:478px) {
+    .slider__items{
+        flex-wrap: wrap;
+    }
+}
+
 /* FIN DE SLIDER */
