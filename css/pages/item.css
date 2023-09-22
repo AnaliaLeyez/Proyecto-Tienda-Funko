@@ -8,3 +8,52 @@
 .shop__collection:nth-child(1) .shop__collection__cover{
     order:-1;
 }
+
+.shop__collection__name{
+    font-size: var(--font-jumbo);
+}
+
+.shop__collection__content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16);
+}
+
+.shop__collection__content p:nth-child(2){
+    font-size: var(--font-small);
+}
+
+.shop__collection__content p:nth-child(3){
+    font-size: var(--font-large);
+}
+
+.shop__collection__content p:nth-child(4){
+    font-size: var(--font-jumbo);
+}
+
+.shop__collection__content div input{
+    width: 8rem;
+    height: 3rem;
+    text-align: center;
+    font-size: var(--font-small);
+}
+
+.add-cart-botton{
+    display: inline-block;
+    font-size: var(--font-xsmall);
+    background-color: var(--primary-900);
+    color: var(--light-font-solid);
+    padding: var(--spacing-8) var(--spacing-12);
+}
+
+.card-item__link-metodo-pago{
+    border-bottom: 2px solid var(--secondary-solid);
+}
+
+.card-item__link-metodo-pago, .card-item__promo-metodo-pago{
+    display: inline;
+    font-size: var(--font-xsmall);
+    color: var(--secondary-solid);
+    font-weight: 700;
+}
