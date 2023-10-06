@@ -49,11 +49,11 @@
     <main id="shop" class="container">
     <aside class="shop__filters"> <!--Inicio Aside-->
             <div class="aside__menu">
-                <label for="search">BUSCAR</label>
+                <label class="shop__filters_label1" for="search">BUSCAR</label>
                 <input type="text"  name="search" id="search" placeholder="item o categoria">
             </div>
             <div>
-                <label for="orderby">ORDENAR POR</label>
+                <label class="shop__filters_label1" for="orderby">ORDENAR POR</label>
                 <select name="orderby" id="orderby">
                 <option selected value="Desc">Mayor a menor</option>
                 <option value="asc">Menor a mayor</option>
@@ -62,22 +62,22 @@
             </select>
             </div>
             <div>
-                <span>PRECIO</span>
-                <label for="min">MIN</label>
+                <span class="shop__filters_label1">PRECIO</span>
+                <label class="shop__filters_label2" for="min">MIN</label>
                 <input type="text" name="min" id="min" placeholder="0">
-                <label for="max">- MAX</label>
+                <label class="shop__filters_label2" for="max">- MAX</label>
                 <input type="text" name="max" id="max" placeholder="0">
             </div>
             <div class="filter">
-                <span for="filter">FILTRAR</span>
+                <span class="shop__filters_label1" for="filter">FILTRAR</span>
                 <input type="checkbox" name="filter" id="news"  value="nuevos">
-                <label for="news">NUEVOS</label>
+                <label class="shop__filters_label2" for="news">NUEVOS</label>
                 <input type="checkbox" name="filter" id="offers"  value="ofertas">
-                <label for="offers">OFERTAS</label>
+                <label class="shop__filters_label2" for="offers">OFERTAS</label>
                 <input type="checkbox" name="specialEdition" id="specialEdition" value="edicion especial">
-                <label for="specialEdition">EDICIÓN ESPECIAL</label>
+                <label class="shop__filters_label2" for="specialEdition">EDICIÓN ESPECIAL</label>
                 <input type="checkbox" name="favorites" id="favorites" value="favoritos">
-                <label for="favorites">FAVORITOS</label>
+                <label class="shop__filters_label2" for="favorites">FAVORITOS</label>
             </div>
         
     </aside> <!--Fin Aside-->

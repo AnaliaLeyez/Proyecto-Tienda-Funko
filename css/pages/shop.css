@@ -9,6 +9,7 @@
 
 #shop{
     display: flex;
+    padding: var(--spacing-16) 0;
 }
 
 /* INICIO DEL ASIDE */
@@ -33,11 +34,15 @@
 }
 
 
-.shop__filters div label{
+.shop__filters_label1{
+    font-size: 24px;
     display: block;
-    padding: var(--spacing-2) 0;
-    font-weight: 500;
 }
+
+.shop__filters_label2{
+    font-size: 18px;
+}
+
 
 /* FIN DEL ASIDE */
 
