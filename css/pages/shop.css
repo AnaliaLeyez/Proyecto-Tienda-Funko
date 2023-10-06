@@ -9,7 +9,8 @@
 
 #shop{
     display: flex;
-    padding: var(--spacing-16) 0;
+    padding: var(--spacing-68) 0;
+    font-family: var(--base-font);
 }
 
 /* INICIO DEL ASIDE */
@@ -29,20 +30,24 @@
 
 
 #min, #max{
-    width: 6rem;
+    width: 4rem;
     text-align: center;
 }
 
 
-.shop__filters_label1{
-    font-size: 24px;
+.shop__filters_title{
+    /*revisar tamanio fuente, no me toma bien con la variable*/
+    font-size: var(--font-small);
     display: block;
+    padding: var(--spacing-8) 0;
 }
 
-.shop__filters_label2{
-    font-size: 18px;
+.filter label{
+    /*revisar tamanio fuente, no me toma bien con la variable*/
+    font-size: var(--font-xsmall);
+    display: block;
+    padding: var(--spacing-2) 0;
 }
-
 
 /* FIN DEL ASIDE */
 
