@@ -1,30 +1,26 @@
-.shop__collection{
+.item{
     display: grid;
     grid-template-columns:  repeat(2, 1fr);
     align-items: center;
     padding: var(--spacing-16) 0;
 }
 
-.shop__collection:nth-child(1) .shop__collection__cover{
-    order:-1;
-}
-
-.shop__collection__name{
+.item__name{
     font-size: var(--font-jumbo);
 }
 
-.shop__collection__content{
+.item__info{
     display: flex;
     flex-direction: column;
     gap: var(--spacing-12);
     padding: var(--spacing-16);
 }
 
-.shop__collection__content p:nth-child(2){
+.item__info p:nth-child(2){
     font-size: var(--font-small);
 }
 
-.shop__collection__content p:nth-child(3){
+.item__info p:nth-child(3){
     font-size: var(--font-large);
 }
 
@@ -32,14 +28,14 @@
     font-size: var(--font-jumbo);
 }
 
-.shop__collection__content div input{
+.item__info div input{
     width: 8rem;
     height: 3rem;
     text-align: center;
     font-size: var(--font-small);
 }
 
-.add-cart-botton{
+.item__submit{
     display: inline-block;
     font-size: var(--font-xsmall);
     background-color: var(--primary-900);
@@ -47,13 +43,13 @@
     padding: var(--spacing-8) var(--spacing-12);
 }
 
-.card-item__link-metodo-pago{
-    border-bottom: 2px solid var(--secondary-solid);
-}
-
-.card-item__link-metodo-pago, .card-item__promo-metodo-pago{
+.item__promo{
     display: inline;
     font-size: var(--font-xsmall);
     color: var(--secondary-solid);
     font-weight: 700;
+}
+
+.item__promo a{
+    border-bottom: 2px solid var(--secondary-solid);
 }
