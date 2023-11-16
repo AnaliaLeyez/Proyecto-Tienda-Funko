@@ -1,6 +1,7 @@
 const express = require ('express');
 const app = express();
 const mainRoutes = require('./src/routes/mainRoutes');
+const shopRoutes = require('./src/routes/shopRoutes');
 
 app.use(express.static('public_html'));
 app.use('/', mainRoutes);
