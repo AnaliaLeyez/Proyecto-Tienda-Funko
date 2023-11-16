@@ -1,10 +1,10 @@
 const express = require ('express');
 const app = express();
+const mainRoutes = require('./src/routes/mainRoutes');
+const shopRoutes = require('./src/routes/shopRoutes');
 
 app.use(express.static('public_html'));
-
-app.get('/home', (req, res)=> res.sendFile(__dirname+'/public_html/index.html'));
-app.get('/shop', (req, res)=> res.send(''));
-app.get('/cart', (req, res)=> res.send(''));
+app.use('/', mainRoutes);
+app.use('/shop', shopRoutes);
 
 app.listen(4000, ()=>console.log('servidor corriendo en http://localhost:4000'));
