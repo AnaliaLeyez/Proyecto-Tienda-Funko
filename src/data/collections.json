@@ -1,0 +1,34 @@
+[
+    {   
+        "collection": "starwars",
+        "licence": "Star Wars",
+        "title": "Star Wars & The Mandalorian",
+        "description": "Disfruta de una saga que sigue agregando personajes a su colección.",
+        "img": "/star-wars/baby-yoda-1.webp",
+        "cta": "ver colección"
+    },
+    {   
+        "collection": "pokemon",
+        "licence": "Pokemon",
+        "title": "Pokemon Indigo",
+        "description": "Atrapa todos los que puedas y disfruta de una colección llena de amigos.",
+        "img": "/pokemon/vulpix-1.webp",
+        "cta": "ver colección"
+    },
+    {   
+        "collection": "harrypotter",
+        "licence": "Harry Potter",
+        "title": "Harry Potter",
+        "description": "Revive los recuerdos de una saga llena de magia y encanto.",
+        "img": "/harry-potter/snape-patronus-1.webp",
+        "cta": "pepe grillo"
+    },
+    {   
+        "collection": "harrypotter",
+        "licence": "Harry Potter",
+        "title": "Harry Potter",
+        "description": "Revive los recuerdos de una saga llena de magia y encanto.",
+        "img": "/harry-potter/snape-patronus-1.webp",
+        "cta": "ver colección"
+    }
+]

@@ -5,7 +5,7 @@ const shopcontrollers= {
         },
     }
     ),
-    item: (req, res)=> res.send(`Rout for find and retrieve a rpoduct from an ID=${req.params.id}`),
+    item: (req, res)=> res.send(`Rout for find and retrieve a product from an ID=${req.params.id}`),
     cartGET: (req, res)=> res.send('Rout for cart view, with GET'),
     cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
      // const id= req.params.id;
