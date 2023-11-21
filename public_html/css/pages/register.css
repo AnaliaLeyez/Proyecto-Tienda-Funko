@@ -3,12 +3,18 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 #register h2 {
     text-align: center;
     font-size: var(--font-jumbo);
-    color: var(--secondary-solid);
+    color: var(--dark-solid);
     font-weight: 400;
     margin: 4rem 0;
+}
+
+.form--btn:nth-child(2){
+    background-color: var(--secondary-solid);
 }

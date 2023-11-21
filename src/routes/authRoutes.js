@@ -12,7 +12,7 @@ const loginValidations = [
     body('password')
     .isLength({ min: 6 })
     .isAlphanumeric()
-    .withMessage('La contraseña debe tener al menos 6 caracteres, letras y números')
+    .withMessage('La contraseña debe tener al menos 6 caracteres, y solo admite letras y números')
    ];
 
 router.get('/login', authcontrollers.loginGET);

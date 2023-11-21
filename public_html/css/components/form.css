@@ -1,0 +1,85 @@
+.form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 4rem;
+}
+
+.form__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: var(--font-small);
+}
+
+.form__box--label {
+    min-width: 100px;
+    color: var(--dark-solid);
+}
+
+.form__box--input {
+    flex-grow: 3;
+    padding: 1rem .5rem;
+    border: none;
+    border-bottom: 2px solid var(--primary-solid);
+}
+
+.form--btn {
+    padding: 1.2rem 2.7rem;
+    max-width: 200px;
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    font-weight: 500;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+.form--btn:hover {
+    background-color: var(--dark-bg-solid);
+}
+
+.form a {
+    color: var(--secondary-solid);
+    font-size: var(--font-xsmall);
+    text-align: center;
+}
+
+
+
+
+#create,
+#update {
+    padding: 2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#update h2 {
+    text-align: center;
+    font-size: var(--font-jumbo);
+    color: var(--secondary-solid);
+    font-weight: 400;
+    margin: 4rem 0;
+}
+
+#update .form__box--selected {
+    padding: .5rem;
+    width: 100%;
+    background-color: var(--light-bg-solid);
+    border-radius: 5px;
+}
+
+#update .form__box--area {
+    font-family: var(--base-font);
+    padding: .5rem;
+    width: 100%;
+}
