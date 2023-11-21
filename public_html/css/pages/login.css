@@ -1,0 +1,14 @@
+#login {
+    padding: 2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#login h2 {
+    text-align: center;
+    font-size: var(--font-jumbo);
+    color: var(--secondary-solid);
+    font-weight: 400;
+    margin: 4rem 0;
+}

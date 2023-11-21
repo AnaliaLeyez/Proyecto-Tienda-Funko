@@ -1,9 +1,22 @@
 const express = require ('express');
 const router = express.Router();
+const validateInput = require('../middlewares/validator');
+const { body } = require('express-validator');
 const authcontrollers= require('../controllers/authControllers');
 
+
+const loginValidations = [
+    body('email')
+    .isEmail()
+    .withMessage('Ingrese una dirección de correo electrónico válida'),
+    body('password')
+    .isLength({ min: 6 })
+    .isAlphanumeric()
+    .withMessage('La contraseña debe tener al menos 6 caracteres, letras y números')
+   ];
+
 router.get('/login', authcontrollers.loginGET);
-router.post('/login', authcontrollers.loginPOST);
+router.post('/login', loginValidations, validateInput, authcontrollers.loginPOST);
 router.get('/register', authcontrollers.registerGET);
 router.post('/register', authcontrollers.registerPOST);
 router.get('/logout', authcontrollers.logout);

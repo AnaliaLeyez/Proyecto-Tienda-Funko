@@ -1,12 +1,37 @@
+const fs = require ('fs'); //file system permite leer archivos
+const path = require('path');
+
 const shopcontrollers= {
-    shop: (req,res)=> res.render("shop/shop.ejs", {
+    shop: (req,res)=> {
+        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+        res.render("shop/shop.ejs", 
+    {
+        productos,
+        view: {
+            title: "SHOP | FUNKOSHOP"
+        },
+    }
+    )},
+    item: (req, res)=> {
+    const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+    res.render("shop/item.ejs", 
+    {
+        productos,
+        view: {
+            title: "SHOP | FUNKOSHOP"
+        },
+        slider:{
+            telte: "Productos relacionados"
+        }
+    }
+    )},
+    cartGET: (req, res)=> res.render("shop/cart.ejs", 
+    {
         view: {
             title: "SHOP | FUNKOSHOP"
         },
     }
     ),
-    item: (req, res)=> res.send(`Rout for find and retrieve a product from an ID=${req.params.id}`),
-    cartGET: (req, res)=> res.send('Rout for cart view, with GET'),
     cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
      // const id= req.params.id;
     // res.send({item});

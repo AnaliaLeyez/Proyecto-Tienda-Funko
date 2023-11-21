@@ -1,0 +1,28 @@
+#admin .table {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+#admin h1 {
+    margin: 2rem 0;
+}
+
+.table__item {
+    display: grid;
+    grid-template-columns: 20px 1fr 4fr auto auto;
+    align-items: center;
+    gap: 2rem;
+}
+
+.table__item--id,
+.table__item--name {
+    font-size: var(--font-medium);
+}
+
+.table__item a {
+    display: inline-block;
+    font-size: var(--font-xsmall);
+    color: var(--secondary-solid);
+}

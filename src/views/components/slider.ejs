@@ -1,5 +1,5 @@
 <section class="slider container glide">
-    <h2 class="slider__title">Últimos Lanzamientos</h2>
+    <h2 class="slider__title"><%= slider.title %></h2>
     <div class="glide__track" data-glide-el="track">
         <ul class="slider__items glide__slides">
             <% productos.forEach(item =>{ %>
@@ -17,7 +17,7 @@
                             <p class="card-item__license"><%= item.licence %></p>
                             <h4 class="card-item__name"><%= item.name %></h4>
                             <p class="card-item__price"><%= item.price %></p>
-                            <p class="card-item__promo">3 CUOTAS SIN INTERÉS</p>
+                            <p class="card-item__promo"><%= item.dues %>  CUOTAS SIN INTERÉS</p>
                         </div>
                     </a>
                 </article>

@@ -1,5 +1,15 @@
+const fs = require ('fs'); //file system permite leer archivos
+const path = require('path');
+
 const adminControllers= {
-    admin: (req,res)=>res.send('Route for Admin'),
+    admin: (req,res)=>{
+        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+        res.render("admin/admin.ejs",{
+        productos,
+        view:{
+            title: "ADMIN | FUNKOSHOP"
+        },
+    })},
     createGET: (req, res)=> res.send('Rout for Admin Create'),
     createPOST: (req, res)=> res.send('Rout POST for Admin Create'),
     editGET: (req, res)=> res.send('Rout for Admin Edit'),

@@ -1,5 +1,6 @@
 const express = require ('express');
 const router = express.Router();
+//const uploadFiles = require('../middlewares/uploadFiles');
 const admincontrollers= require('../controllers/adminControllers');
 
 router.get('/', admincontrollers.admin);
