@@ -3,17 +3,21 @@
     <h1>Listado de Productos</h1>
     <table class="table">
         <li class="table__item">
-            <p>ID</p>
-            <p class="table__item--id">Código</p>
-            <p class="table__item--name">Nombre del Producto</p>
+            <p><strong>ID</strong></p>
+            <p class="table__item--id"><strong>Código</strong></p>
+            <p class="table__item--name"><strong>Nombre del Producto</strong></p>
         </li>
         <% productos.forEach( item => { %> 
             <li class="table__item">
                 <p><%= item.id %></p>
                 <p class="table__item--id"><%= item.sku %></p>
                 <p class="table__item--name"><%= item.name %></p>
-                <a href="/admin/edit/<%= item.sku %>" class="table__item--edit">Editar</a>
-                <a href="/admin/delete/<%= item.sku %>?_method=DELETE" class="table__item--delete">Eliminar</a>
+                <a href="/admin/edit/<%= item.sku %>" class="table__item--edit">
+                    <img class="cart__item-edit" src="/img/icons/edit_pencil.svg">
+                </a>
+                <a href="/admin/delete/<%= item.sku %>?_method=DELETE" class="table__item--delete">
+                    <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
+                </a>
             </li>
         <% }); %> 
     </table>

@@ -43,12 +43,12 @@ h3{
 
 .cart__item{
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     gap: var(--spacing-28);
     margin: var(--spacing-24) 0;
     padding: var(--spacing-12) 0;
+    max-height: 15vh;
     background-color: var(--light-bg-solid);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -64,10 +64,13 @@ h3{
     height: 118px;
 }
 
-.cart__item-delete{
-    width: 20px;
-    height: 20px;
+.cart__item-delete, .cart__item-edit{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
 }
+
 
 /*SECCION RESUMEN */
 

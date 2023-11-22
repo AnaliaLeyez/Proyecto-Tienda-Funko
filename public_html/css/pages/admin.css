@@ -1,6 +1,8 @@
 #admin .table {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
     gap: 2rem;
 }
 
@@ -14,6 +16,7 @@
     grid-template-columns: 20px 1fr 4fr auto auto;
     align-items: center;
     gap: 2rem;
+    padding: 1rem 0;
 }
 
 .table__item--id,
@@ -26,3 +29,4 @@
     font-size: var(--font-xsmall);
     color: var(--secondary-solid);
 }
+
