@@ -1,5 +1,6 @@
 const fs = require ('fs'); //file system permite leer archivos
 const path = require('path');
+const { getAll } = require('../models/items');
 
 const shopcontrollers= {
     shop: (req,res)=> {
@@ -12,19 +13,23 @@ const shopcontrollers= {
         },
     }
     )},
-    item: (req, res)=> {
-    const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
-    res.render("shop/item.ejs", 
-    {
-        productos,
-        view: {
-            title: "SHOP | FUNKOSHOP"
-        },
-        slider:{
-            telte: "Productos relacionados"
-        }
-    }
-    )},
+    // item: (req, res)=> {
+    // const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+    // res.render("shop/item.ejs", 
+    // {
+    //     productos,
+    //     view: {
+    //         title: "SHOP | FUNKOSHOP"
+    //     },
+    //     slider:{
+    //         telte: "Productos relacionados"
+    //     }
+    // }
+    // )},
+    item:async (req, res)=> {
+        const items = await getAll();
+        res.send(items);
+    },
     cartGET: (req, res)=> res.render("shop/cart.ejs", 
     {
         view: {
