@@ -1,6 +1,7 @@
 const fs = require ('fs'); //file system permite leer archivos
 const path = require('path');
-const { getAll } = require('../models/items');
+const { getOne} = require('../models/items');
+//const { getAllItems} = require('../services/itemServices');
 
 const shopcontrollers= {
     shop: (req,res)=> {
@@ -13,6 +14,7 @@ const shopcontrollers= {
         },
     }
     )},
+
     // item: (req, res)=> {
     // const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
     // res.render("shop/item.ejs", 
@@ -26,10 +28,21 @@ const shopcontrollers= {
     //     }
     // }
     // )},
-    item:async (req, res)=> {
-        const items = await getAll();
-        res.send(items);
+
+
+    // itemGET: async (req, res)=> {
+    //     const items = await getAllItems();
+    //     res.send(items);
+    // },
+
+    itemGET: async function getItem(req,res){
+        const id= req.params.id;
+        const item = await getOne({product_id: id});
+        res.send(item);
     },
+
+    itemPOST:(req, res)=> res.send('Rout for item with POST'),
+
     cartGET: (req, res)=> res.render("shop/cart.ejs", 
     {
         view: {
@@ -37,6 +50,7 @@ const shopcontrollers= {
         },
     }
     ),
+
     cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
      // const id= req.params.id;
     // res.send({item});

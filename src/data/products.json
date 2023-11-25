@@ -1,6 +1,6 @@
 [
     {
-     "id": 1,
+     "product_id": 1,
      "collection": "starwars",
      "licence": "Star Wars",
      "name": "Baby Yoda Blueball",
@@ -14,7 +14,7 @@
      "sells": 11
     },
     {
-     "id": 2,
+     "product_id": 2,
      "collection": "starwars",
      "licence": "Star Wars",
      "name": "Boba Fett Fighter",
@@ -28,7 +28,7 @@
      "sells": 5
     },
     {
-     "id": 3,
+     "product_id": 3,
      "collection": "starwars",
      "licence": "Star Wars",
      "name": "Luke Skylwalker & Grogu",
@@ -42,7 +42,7 @@
      "sells": 5
     },
     {
-     "id": 4,
+     "product_id": 4,
      "collection": "starwars",
      "licence": "Star Wars",
      "name": "Stormtrooper Lightsaber",
@@ -56,7 +56,7 @@
      "sells": 17
     },
     {
-     "id": 5,
+     "product_id": 5,
      "collection": "pokemon",
      "licence": "Pokemon",
      "name": "Charmander Smiley",
@@ -70,7 +70,7 @@
      "sells": 5
     },
     {
-     "id": 6,
+     "product_id": 6,
      "collection": "pokemon",
      "licence": "Pokemon",
      "name": "Dragonite Hi!",
@@ -84,7 +84,7 @@
      "sells": 13
     },
     {
-     "id": 7,
+     "product_id": 7,
      "collection": "pokemon",
      "licence": "Pokemon",
      "name": "Pidgeotto Flying",
@@ -98,7 +98,7 @@
      "sells": 17
     },
     {
-     "id": 8,
+     "product_id": 8,
      "collection": "pokemon",
      "licence": "Pokemon",
      "name": "Pikachu Smiley",
@@ -112,7 +112,7 @@
      "sells": 5
     },
     {
-     "id": 9,
+     "product_id": 9,
      "collection": "pokemon",
      "licence": "Pokemon",
      "name": "Vulpix Fancy",
@@ -126,7 +126,7 @@
      "sells": 5
     },
     {
-     "id": 10,
+     "product_id": 10,
      "collection": "harrypotter",
      "licence": "Harry Potter",
      "name": "Harry Potter & Hegwid",
@@ -140,7 +140,7 @@
      "sells": 5
     },
     {
-     "id": 11,
+     "product_id": 11,
      "collection": "harrypotter",
      "licence": "Harry Potter",
      "name": "Herminione Ball Dress",
@@ -154,7 +154,7 @@
      "sells": 5
     },
     {
-     "id": 12,
+     "product_id": 12,
      "collection": "harrypotter",
      "licence": "Harry Potter",
      "name": "Luna Lovegood Lion Mask",
@@ -168,7 +168,7 @@
      "sells": 17
     },
     {
-     "id": 13,
+     "product_id": 13,
      "collection": "harrypotter",
      "licence": "Harry Potter",
      "name": "Snape Patronus",

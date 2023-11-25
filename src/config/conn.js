@@ -1,12 +1,14 @@
+//En este archivo nos conectamos a la BD
 const mysq = require('mysql2');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 
 const pool = mysq.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'funko_db',
-    port: 3306,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    port: process.env.PORT,
     waitForConnections: true,
     connectionLimit: 10,
     enableKeepAlive: true,
