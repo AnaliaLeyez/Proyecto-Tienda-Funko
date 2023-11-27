@@ -55,11 +55,11 @@
                 <% items.forEach(item => { %>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="#">
+                        <a class="card-item__link" href="/shop/item/<%= item.item_id %>">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
-                                <img class="card-item__img--front" src="/img<%= item.img.front %>" alt="<%= item.description %>">
-                                <img class="card-item__img--back" src="/img<%= item.img.back %>" alt="<%= item.description %> En caja">
+                                <img class="card-item__img--front" src="/img<%= item.img_front %>" alt="<%= item.description %>">
+                                <img class="card-item__img--back" src="/img<%= item.img_back %>" alt="<%= item.description %> En caja">
                                 </picture>
                             <div class="card-item__content">
                                 <p class="card-item__license"><%= item.licence %></p>
@@ -71,12 +71,19 @@
                     </article>
                 </li>
                 <% });  %>
-            </ul>            
+            </ul>    
+            
+            <div class="pagination">
+                <a class="pagination__link" href="#"><</a>
+                <a class="pagination__link pagination__link--selected" href="#">1</a>
+                <a class="pagination__link" href="#">2</a>
+                <a class="pagination__link" href="#">3</a>
+                <a class="pagination__link" href="#">4</a>
+                <a class="pagination__link" href="#">5</a>
+                <a class="pagination__link" href="#">></a>
+            </div>
         </section>
 
-        <section>
-            <!--Aca va la numeracion de paginas-->
-        </section>
     </main>
 
     <%- include('../partials/footer') %>

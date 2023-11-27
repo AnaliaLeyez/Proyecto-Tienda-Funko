@@ -6,10 +6,10 @@ const { getAllItems, getOneItem, deleteOneItem } = require('../services/itemsSer
 
 const shopcontrollers= {
     shop: (req,res)=> {
-        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
+        const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         res.render("shop/shop.ejs", 
     {
-        productos,
+        items,
         view: {
             title: "SHOP | FUNKOSHOP"
         },
@@ -25,7 +25,7 @@ const shopcontrollers= {
     //         title: "SHOP | FUNKOSHOP"
     //     },
     //     slider:{
-    //         telte: "Productos relacionados"
+    //         title: "Productos relacionados"
     //     }
     // }
     // )},
@@ -41,7 +41,20 @@ const shopcontrollers= {
         if(item.isError){
             item = 'Hubo un error'
         }
-        res.send(item);
+        const items = await getAllItems();
+
+        res.render("shop/item.ejs", 
+        { 
+            items,
+            item: item[0],
+            view: {
+                title: "SHOP | FUNKOSHOP"
+            },
+            slider:{ 
+                        title: "Productos relacionados"
+                    }
+        }
+        )
     },
 
     itemPOST:(req, res)=> res.send('Rout for item with POST'),
@@ -55,8 +68,7 @@ const shopcontrollers= {
     ),
 
     cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
-     // const id= req.params.id;
-    // res.send({item});
+
 };
 //router.post('/item/:id/add', (req, res)=> res.send('Rout for add the current item to the shop cart'));
 //router.post('/cart', (req, res)=> res.send('Rout for go to checkout page'));

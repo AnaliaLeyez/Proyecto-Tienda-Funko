@@ -5,12 +5,12 @@
             <% items.forEach(item =>{ %>
                 <li class="slider__item glide__slide">
                 <article class="card-item">
-                    <a class="card-item__link" href="/shop/item/<%=item.id%>">
+                    <a class="card-item__link" href="/shop/item/<%=item.item_id%>">
                         <picture class="card-item__cover">
                             <span class="card-item__tag">Nuevo</span>
-                            <img class="card-item__img--front" src="/img/<%= item.img.front %>"
+                            <img class="card-item__img--front" src="/img/<%= item.img_front %>"
                                 alt="<%= item.description %>">
-                            <img class="card-item__img--back" src="/img/<%= item.img.back %>"
+                            <img class="card-item__img--back" src="/img/<%= item.img_back %>"
                                 alt="<%= item.description %>">
                         </picture>
                         <div class="card-item__content">

@@ -24,11 +24,19 @@ const adminControllers= {
     
     // createPOST: (req, res)=> res.send('Rout for Admin create POST'),
     createPOST: async(req, res)=>{
-        const result = await createOneItem(req.params);
-        res.send(result);
+        await createOneItem(req.body);
+        res.redirect('/admin');
     },
 
-    editGET: (req, res)=> res.send('Rout for Admin Edit'),
+    // editGET: (req, res)=> res.send('Rout for Admin Edit'),
+    editGET: (req, res)=>{
+        res.render("admin/edit.ejs",{
+        view:{
+            title: "ADMIN EDIT | FUNKOSHOP"
+        },
+    })
+    },
+
     editPUT: (req, res)=> res.send('Rout PUT for Admin Edit'),
     
     delete: async(req, res)=>{
