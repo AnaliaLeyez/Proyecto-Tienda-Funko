@@ -8,9 +8,9 @@ const pool = mysq.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     database: process.env.DB_NAME,
-    port: process.env.PORT,
+    port: process.env.DB_PORT,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 10, 
     enableKeepAlive: true,
     queueLimit: 0
 });
@@ -19,12 +19,12 @@ const pool = mysq.createPool({
 // Lee el archivo JSON y realiza las inserciones en la base de datos
 async function insertarProductos() {
     try {
-        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8'));
+        const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json'), 'utf-8'));
         const connection = await pool.promise().getConnection();
 
         // Itera sobre los productos y realiza las inserciones en la base de datos
-        for (const producto of productos) {
-            const result = await connection.query('INSERT INTO product SET ?', producto);
+        for (const item of items) {
+            const result = await connection.query('INSERT INTO item SET ?', item);
             console.log(`Producto insertado con ID: ${result[0].insertId}`);
         }
 

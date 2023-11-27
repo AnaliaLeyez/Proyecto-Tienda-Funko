@@ -1,10 +1,12 @@
 const fs = require ('fs'); //file system permite leer archivos
 const path = require('path');
-
+//Si no tuviera "Servicios" de intermediario haria:
+// const { getOne, deleteOne} = require('../models/itemsModels');
+const { getAllItems, getOneItem, createOneItem, deleteOneItem } = require('../services/itemsServices');
 
 const adminControllers= {
     admin: (req,res)=>{
-        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         res.render("admin/admin.ejs",{
         productos,
         view:{
@@ -20,11 +22,19 @@ const adminControllers= {
         })
     },
     
-    createPOST: (req, res)=> res.send('Rout for Admin create POST'),
+    // createPOST: (req, res)=> res.send('Rout for Admin create POST'),
+    createPOST: async(req, res)=>{
+        const result = await createOneItem(req.params);
+        res.send(result);
+    },
 
     editGET: (req, res)=> res.send('Rout for Admin Edit'),
     editPUT: (req, res)=> res.send('Rout PUT for Admin Edit'),
-    delete: (req, res)=> res.send('Rout for DELETE Admin')
+    
+    delete: async(req, res)=>{
+        const result = await deleteOneItem(req.params.id);
+        res.send(result);
+    }
 }
 
 module.exports = adminControllers;

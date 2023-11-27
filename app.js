@@ -1,6 +1,8 @@
 const express = require ('express');
 const app = express();
 const path = require('path');
+require('dotenv').config();
+const PORT = process.env.APP_PORT || 4000;
 const methodOverride = require('method-override');
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
@@ -26,4 +28,4 @@ app.use('/shop', shopRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
 
-app.listen(4000, ()=>console.log('servidor corriendo en http://localhost:4000'));
+app.listen(PORT, ()=>console.log(`servidor corriendo en http://localhost:${PORT}`));

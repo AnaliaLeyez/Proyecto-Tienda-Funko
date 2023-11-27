@@ -3,10 +3,10 @@ const path = require('path');
 
 const mainControllers= {
     home: (req,res)=>{
-        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+        const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         const colecciones = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/collections.json')));
         res.render("home.ejs",{
-        productos,
+        items,
         colecciones,
         view:{
             title: "HOME | FUNKOSHOP"

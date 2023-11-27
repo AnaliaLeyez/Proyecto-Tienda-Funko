@@ -1,11 +1,12 @@
 const fs = require ('fs'); //file system permite leer archivos
 const path = require('path');
-const { getOne} = require('../models/items');
-//const { getAllItems} = require('../services/itemServices');
+//Si no tuviera "Servicios" de intermediario haria:
+const { getOne} = require('../models/itemsModels');
+const { getAllItems, getOneItem, deleteOneItem } = require('../services/itemsServices');
 
 const shopcontrollers= {
     shop: (req,res)=> {
-        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         res.render("shop/shop.ejs", 
     {
         productos,
@@ -16,10 +17,10 @@ const shopcontrollers= {
     )},
 
     // item: (req, res)=> {
-    // const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+    // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
     // res.render("shop/item.ejs", 
     // {
-    //     productos,
+    //     items,
     //     view: {
     //         title: "SHOP | FUNKOSHOP"
     //     },
@@ -35,9 +36,11 @@ const shopcontrollers= {
     //     res.send(items);
     // },
 
-    itemGET: async function getItem(req,res){
-        const id= req.params.id;
-        const item = await getOne({product_id: id});
+    itemGET: async(req,res)=>{
+        let item = await getOneItem(req.params.id);
+        if(item.isError){
+            item = 'Hubo un error'
+        }
         res.send(item);
     },
 
