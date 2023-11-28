@@ -5,13 +5,14 @@
      "licence": "Star Wars",
      "name": "Baby Yoda Blueball",
      "description": "Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.",
-     "img_front": "/star-wars/baby-yoda-1.webp",
-    "img_back": "/star-wars/baby-yoda-box.webp",
+     "discount": 12,
      "sku": "STW001001",
      "price": 1799.99,
      "dues": 3,
      "stock": 8,
-     "sells": 11
+     "sells": 11,
+     "img_front": "/star-wars/baby-yoda-1.webp",
+     "img_back": "/star-wars/baby-yoda-box.webp",
     },
     {
      "item_id": 2,
@@ -19,13 +20,14 @@
      "licence": "Star Wars",
      "name": "Boba Fett Fighter",
      "description": "Figura coleccionable de Boba Fett Fighter - The Mandalorian Saga.",
-     "img_front": "/star-wars/bobbafeth-1.webp",
-     "img_back": "/star-wars/bobbafeth-box.webp",
+     "discount": 10,
      "sku": "STW001002",
      "price": 1499.99,
      "dues": 6,
      "stock": 8,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/star-wars/bobbafeth-1.webp",
+     "img_back": "/star-wars/bobbafeth-box.webp"
     },
     {
      "item_id": 3,
@@ -33,13 +35,14 @@
      "licence": "Star Wars",
      "name": "Luke Skylwalker & Grogu",
      "description": "Figura coleccionable de Luke Skylwalker & Grogu - The Mandalorian Saga.",
-     "img_front": "/star-wars/luke-1.webp",
-     "img_back": "/star-wars/luke-box.webp",
+     "discount": 5,
      "sku": "STW001003",
      "price": 1999.99,
      "dues": 6,
      "stock": 8,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/star-wars/luke-1.webp",
+     "img_back": "/star-wars/luke-box.webp"
     },
     {
      "item_id": 4,
@@ -47,13 +50,14 @@
      "licence": "Star Wars",
      "name": "Stormtrooper Lightsaber",
      "description": "Figura coleccionable de Stormtrooper Lightsaber - Star Wars Saga.",
-     "img_front": "/star-wars/trooper-1.webp",
-     "img_back": "/star-wars/trooper-box.webp",
+     "discount": 15,
      "sku": "STW001004",
      "price": 1599.99,
      "dues": 6,
      "stock": 8,
-     "sells": 17
+     "sells": 17,
+     "img_front": "/star-wars/trooper-1.webp",
+     "img_back": "/star-wars/trooper-box.webp"
     },
     {
      "item_id": 5,
@@ -61,13 +65,14 @@
      "licence": "Pokemon",
      "name": "Charmander Smiley",
      "description": "Figura coleccionable de Charmander - Pokemon Saga.",
-     "img_front": "/pokemon/charmander-1.webp",
-     "img_back": "/pokemon/charmander-box.webp",
+     "discount": 10,
      "sku": "PKM001001",
      "price": 1799.99,
      "dues": 6,
      "stock": 8,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/pokemon/charmander-1.webp",
+     "img_back": "/pokemon/charmander-box.webp"
     },
     {
      "item_id": 6,
@@ -75,13 +80,14 @@
      "licence": "Pokemon",
      "name": "Dragonite Hi!",
      "description": "Figura coleccionable de Dragonite - Pokemon Saga.",
-     "img_front": "/pokemon/dragonite-1.webp",
-     "img_back": "/pokemon/dragonite-box.webp",
+     "discount": 5,
      "sku": "PKM001002",
      "price": 1699.99,
      "dues": 3,
      "stock": 8,
-     "sells": 13
+     "sells": 13,
+     "img_front": "/pokemon/dragonite-1.webp",
+     "img_back": "/pokemon/dragonite-box.webp"
     },
     {
      "item_id": 7,
@@ -89,13 +95,14 @@
      "licence": "Pokemon",
      "name": "Pidgeotto Flying",
      "description": "Figura coleccionable de Pidgeotto - Pokemon Saga.",
-     "img_front": "/pokemon/pidgeotto-1.webp",
-     "img_back": "/pokemon/pidgeotto-box.webp",
+     "discount": 5,
      "sku": "PKM00103",
      "price": 1999.99,
      "dues": 9,
      "stock": 8,
-     "sells": 17
+     "sells": 17,
+     "img_front": "/pokemon/pidgeotto-1.webp",
+     "img_back": "/pokemon/pidgeotto-box.webp"
     },
     {
      "item_id": 8,
@@ -103,13 +110,14 @@
      "licence": "Pokemon",
      "name": "Pikachu Smiley",
      "description": "Figura coleccionable de Pikachu - Pokemon Saga.",
-     "img_front": "/pokemon/pikachu-1.webp",
-     "img_back": "/pokemon/pikachu-box.webp",
+     "discount": 10,
      "sku": "PKM001004",
      "price": 1899.99,
      "dues": 3,
      "stock": 8,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/pokemon/pikachu-1.webp",
+     "img_back": "/pokemon/pikachu-box.webp"
     },
     {
      "item_id": 9,
@@ -117,13 +125,14 @@
      "licence": "Pokemon",
      "name": "Vulpix Fancy",
      "description": "Figura coleccionable de Vulpix - Pokemon Saga.",
-     "img_front": "/pokemon/vulpix-1.webp",
-     "img_back": "/pokemon/vulpix-box.webp",
+     "discount": 10,
      "sku": "PKM001005",
      "price": 1799.99,
      "dues": 3,
      "stock": 8,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/pokemon/vulpix-1.webp",
+     "img_back": "/pokemon/vulpix-box.webp"
     },
     {
      "item_id": 10,
@@ -131,13 +140,14 @@
      "licence": "Harry Potter",
      "name": "Harry Potter & Hegwid",
      "description": "Figura coleccionable de Harry Potter & Hegwid - Harry Potter Saga.",
-     "img_front":"/harry-potter/harry-1.webp",
-     "img_back": "/harry-potter/harry-box.webp",
+     "discount": 15,
      "sku": "HPT001001",
      "price": 1999.99,
      "dues": 3,
      "stock": 8,
      "sells": 5
+     "img_front":"/harry-potter/harry-1.webp",
+     "img_back": "/harry-potter/harry-box.webp"
     },
     {
      "item_id": 11,
@@ -145,13 +155,14 @@
      "licence": "Harry Potter",
      "name": "Herminione Ball Dress",
      "description": "Figura coleccionable de Herminione - Harry Potter Saga.",
-     "img_front": "/harry-potter/hermione-1.webp",
-     "img_back": "/harry-potter/hermione-box.webp",
+     "discount": 5,
      "sku": "HPT001002",
      "price": 1699.99,
      "dues": 3,
      "stock": 8,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/harry-potter/hermione-1.webp",
+     "img_back": "/harry-potter/hermione-box.webp",
     },
     {
      "item_id": 12,
@@ -159,13 +170,14 @@
      "licence": "Harry Potter",
      "name": "Luna Lovegood Lion Mask",
      "description": "Figura coleccionable de Luna Lovegood - Harry Potter Saga.",
-     "img_front": "/harry-potter/luna-1.webp",
-     "img_back": "/harry-potter/luna-box.webp",
+     "discount": 15,
      "sku": "HPT001003",
      "price": 1799.99,
      "dues": 3,
      "stock": 8,
-     "sells": 17
+     "sells": 17,
+     "img_front": "/harry-potter/luna-1.webp",
+     "img_back": "/harry-potter/luna-box.webp"
     },
     {
      "item_id": 13,
@@ -173,13 +185,14 @@
      "licence": "Harry Potter",
      "name": "Snape Patronus",
      "description": "Figura coleccionable de Snape Patronus - Harry Potter Saga.",
-     "img_front": "/harry-potter/snape-patronus-1.webp",
-     "img_back": "/harry-potter/snape-patronus-box.webp",
+     "discount": 5,
      "sku": "HPT001004",
      "price": 1599.99,
      "dues": 3,
      "stock": 13,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/harry-potter/snape-patronus-1.webp",
+     "img_back": "/harry-potter/snape-patronus-box.webp"
     },
     {
      "id": 14,
@@ -188,12 +201,12 @@
      "name": "Vaporeon",
      "description": "Figura coleccionable de Vaporeon",
      "discount": 10,
-     "img_front": "/pokemon/vaporeon.webp",
-     "img_back":"/pokemon/vaporeon-box.webp",
      "sku": "PKM001006",
      "price": 2199.99,
      "dues": 6,
      "stock": 12,
-     "sells": 5
+     "sells": 5,
+     "img_front": "/pokemon/vaporeon.webp",
+     "img_back":"/pokemon/vaporeon-box.webp",
      }
    ]

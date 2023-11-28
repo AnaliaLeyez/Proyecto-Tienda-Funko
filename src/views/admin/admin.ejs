@@ -9,7 +9,7 @@
         </li>
         <% items.forEach( item => { %> 
             <li class="table__item">
-                <p><%= item.id %></p>
+                <p><%= item.item_id %></p>
                 <p class="table__item--id"><%= item.sku %></p>
                 <p class="table__item--name"><%= item.name %></p>
                 <a href="/admin/edit/<%= item.sku %>" class="table__item--edit">

@@ -6,9 +6,9 @@ const { getAllItems, getOneItem, createOneItem, deleteOneItem } = require('../se
 
 const adminControllers= {
     admin: (req,res)=>{
-        const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
+        const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         res.render("admin/admin.ejs",{
-        productos,
+        items,
         view:{
             title: "ADMIN | FUNKOSHOP"
         },
@@ -22,13 +22,19 @@ const adminControllers= {
         })
     },
     
-    // createPOST: (req, res)=> res.send('Rout for Admin create POST'),
     createPOST: async(req, res)=>{
-        await createOneItem(req.body);
-        res.redirect('/admin');
+        await createOneItem(req.body, req.files);
+        
+        const items = await getAllItems();
+
+        res.render('admin/admin.ejs', {
+            items,
+            view:{
+                title: "ADMIN | FUNKOSHOP"
+            },
+        });
     },
 
-    // editGET: (req, res)=> res.send('Rout for Admin Edit'),
     editGET: (req, res)=>{
         res.render("admin/edit.ejs",{
         view:{

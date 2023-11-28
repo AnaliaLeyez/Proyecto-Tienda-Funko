@@ -32,7 +32,7 @@ const getOne = async(params) =>{
 
 const createOne = async(params) =>{
     try{
-        const [rows] = await conn.query('INSERT INTO item VALUES;', params); //otra opcion: params.id
+        const [rows] = await conn.query('INSERT INTO item (collection, licence, name, description, sku, price, dues, stock, sells, discount, img_front, img_back,  category_category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', params);
         return rows;
 
     }catch(e){

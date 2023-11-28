@@ -13,24 +13,26 @@ const getOneItem =async(params)=>{
     return data;
 }
 
-const createOneItem =async(item)=>{
+const createOneItem =async(item, files)=>{
     const itemSchema= {
      collection: item.collection,
      licence: item.collection,
      name: item.name,
      description: item.description,
-     img_front:  item.imagenes,
-     img_back:  item.imagenes,
      sku:  item.sku,
      price:  item.price,
      dues:  item.dues,
      stock:  item.stock,
-     sells: 17
+     sells: 18,
+     discount: item.discount,
+     img_front:  '/' + files[0].filename,
+     img_back:  '/' + files[1].filename,
+     category_category_id: item.category_id
     }
 
-    const data = await createOne({item_id: params});
+    const data = await createOne(Object.values(itemSchema));
+    // console.log(data);
     return data;
-    // return await itemModel.create([Object.values(itemSchema)]);
 }
 
 const deleteOneItem =async(params)=>{
