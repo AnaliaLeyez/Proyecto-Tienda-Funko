@@ -31,12 +31,12 @@ const createOneItem =async(item, files)=>{
     }
 
     const data = await createOne(Object.values(itemSchema));
-    // console.log(data);
+    //console.log(data);
     return data;
 }
 
-const deleteOneItem =async(params)=>{
-    const result = await deleteOne({item_id: params});
+const deleteOneItem =async(id)=>{
+    const result = await deleteOne({item_id: id});
     return result;
 }
 

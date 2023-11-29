@@ -1,12 +1,17 @@
-const fs = require ('fs'); //file system permite leer archivos
-const path = require('path');
+// const fs = require ('fs'); //file system permite leer archivos
+// const path = require('path'); //este y fs serian necesarios si trajera los datos desde el archivo json
 //Si no tuviera "Servicios" de intermediario haria:
-const { getOne} = require('../models/itemsModels');
-const { getAllItems, getOneItem, deleteOneItem } = require('../services/itemsServices');
+//const { getOne} = require('../models/itemsModels');
+const { getAllItems, getOneItem } = require('../services/itemsServices');
 
 const shopcontrollers= {
-    shop: (req,res)=> {
-        const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
+    shop: async(req,res) => {
+        //Si no tuviera BD:
+        // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
+        let items = await getAllItems();
+        if(items.isError){
+            items = 'Hubo un error'
+        }
         res.render("shop/shop.ejs", 
     {
         items,
@@ -16,25 +21,6 @@ const shopcontrollers= {
     }
     )},
 
-    // item: (req, res)=> {
-    // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
-    // res.render("shop/item.ejs", 
-    // {
-    //     items,
-    //     view: {
-    //         title: "SHOP | FUNKOSHOP"
-    //     },
-    //     slider:{
-    //         title: "Productos relacionados"
-    //     }
-    // }
-    // )},
-
-
-    // itemGET: async (req, res)=> {
-    //     const items = await getAllItems();
-    //     res.send(items);
-    // },
 
     itemGET: async(req,res)=>{
         let item = await getOneItem(req.params.id);

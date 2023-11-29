@@ -5,8 +5,10 @@ const path = require('path');
 const { getAllItems, getOneItem, createOneItem, deleteOneItem } = require('../services/itemsServices');
 
 const adminControllers= {
-    admin: (req,res)=>{
-        const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
+    admin: async(req,res)=>{
+        //Opcion sin BD:
+        // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
+        const items = await getAllItems();
         res.render("admin/admin.ejs",{
         items,
         view:{
@@ -43,11 +45,14 @@ const adminControllers= {
     })
     },
 
+
     editPUT: (req, res)=> res.send('Rout PUT for Admin Edit'),
     
     delete: async(req, res)=>{
-        const result = await deleteOneItem(req.params.id);
-        res.send(result);
+        // const result = await deleteOneItem(req.params.id);
+        await deleteOneItem(req.params.id);
+        // res.send(result);
+        res.redirect('/admin');
     }
 }
 

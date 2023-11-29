@@ -32,7 +32,7 @@ const getOne = async(params) =>{
 
 const createOne = async(params) =>{
     try{
-        const [rows] = await conn.query('INSERT INTO item (collection, licence, name, description, sku, price, dues, stock, sells, discount, img_front, img_back,  category_category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', params);
+        const [rows] = await conn.query('INSERT INTO item (collection, licence, name, description, discount, sku, price, dues, stock, sells,  img_front, img_back,  category_category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', params);
         return rows;
 
     }catch(e){
@@ -52,30 +52,16 @@ const deleteOne = async(params) =>{
     }catch(e){
         const error ={
             isError: true,
-            Message: `No se pudo borrar el registro con id ${id} debido a: ${e}`
+            Message: `No se pudo borrar el registro con id ${params} debido a: ${e}`
         }
         return error;
     }
 };
 
-// const updateOne = async(id) =>{
-//     try{
-//         const [rows] = await conn.query('UPDATE item SET ?', 'WHERE item_id=?;', id); //otra opcion: params.id
-//         return rows;
-
-//     }catch(e){
-//         const error ={
-//             isError: true,
-//             Message: `No se pudo actualizar el registro con id ${id} debido a: ${e}`
-//         }
-//         return error;
-//     }
-// };
 
 module.exports={
     getAll,
     getOne,
     createOne,
     deleteOne,
-    // updateOne
 }
