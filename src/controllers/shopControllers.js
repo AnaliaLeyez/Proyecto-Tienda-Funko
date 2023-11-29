@@ -2,7 +2,7 @@
 // const path = require('path'); //este y fs serian necesarios si trajera los datos desde el archivo json
 //Si no tuviera "Servicios" de intermediario haria:
 //const { getOne} = require('../models/itemsModels');
-const { getAllItems, getOneItem } = require('../services/itemsServices');
+const { getAllItems, getOneItem } = require('../services/itemServices');
 
 const shopcontrollers= {
     shop: async(req,res) => {

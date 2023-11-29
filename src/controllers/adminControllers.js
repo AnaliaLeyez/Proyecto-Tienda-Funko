@@ -2,7 +2,7 @@ const fs = require ('fs'); //file system permite leer archivos
 const path = require('path');
 //Si no tuviera "Servicios" de intermediario haria:
 // const { getOne, deleteOne} = require('../models/itemsModels');
-const { getAllItems, getOneItem, createOneItem, deleteOneItem } = require('../services/itemsServices');
+const { getAllItems, getOneItem, createOneItem, deleteOneItem } = require('../services/itemServices');
 
 const adminControllers= {
     admin: async(req,res)=>{

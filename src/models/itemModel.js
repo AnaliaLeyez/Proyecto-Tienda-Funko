@@ -1,6 +1,6 @@
 const { conn } = require('../config/conn'); //importo la conexion
 
-//Aca requiero la tabla product de la BD
+//Aca requiero la tabla item de la BD
 const getAll = async() =>{
     try{
         const [rows] = await conn.query('SELECT * FROM item;');
@@ -9,7 +9,7 @@ const getAll = async() =>{
     }catch(e){
         const error ={
             isError: true,
-            Message: `No se pudieron recuperar los datos por: ${e}`
+            Message: `No se pudieron recuperar los datos de Item por: ${e}`
         }
         return error;
     }

@@ -1,5 +1,5 @@
 //Aca se contiene la "lógica de negocio"
-const { getAll, getOne, createOne, deleteOne } = require('../models/itemsModels');
+const { getAll, getOne, createOne, deleteOne } = require('../models/itemModel');
 
 const getAllItems =async(params)=>{
 
