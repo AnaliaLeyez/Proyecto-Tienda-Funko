@@ -3,14 +3,16 @@
 //Si no tuviera "Servicios" de intermediario haria:
 //const { getOne} = require('../models/itemsModels');
 const { getAllItems} = require('../services/itemServices');
+const { getAllLicences} = require('../services/licenceServices');
 
 
 const mainControllers= {
     home: async(req,res)=>{
         //Si no tuviera BD:
         // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
-        const colecciones = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/collections.json')));
+        // const colecciones = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/licences.json')));
         const items = await getAllItems();
+        const colecciones = await getAllLicences();
         
         res.render("home.ejs",{
         items,
@@ -19,7 +21,7 @@ const mainControllers= {
             title: "HOME | FUNKOSHOP"
         },
         slider:{
-            telte: "Últimos lanzamientos"
+            title: "Últimos lanzamientos"
         }
     })},
 

@@ -9,7 +9,7 @@ const validateInput = (req, res, next) => {
     next(); // Caso contrario continuamos al controlador
    };
 
-   const loginValidations = [
+const loginValidations = [
     body('email')
     .isEmail()
     .withMessage('Ingrese una dirección de correo electrónico válida'),

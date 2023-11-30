@@ -3,36 +3,44 @@ const { conn } = require('../config/conn'); //importo la conexion
 //Aca requiero la tabla item de la BD
 const getAll = async() =>{
     try{
-        const [rows] = await conn.query('SELECT * FROM item;');
+        const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id;');
         return rows;
 
     }catch(e){
         const error ={
             isError: true,
-            Message: `No se pudieron recuperar los datos de Item por: ${e}`
-        }
+            Message: `No se pudieron recuperar los datos de Producto por: ${e}`
+        };
         return error;
-    }
-    
+    } finally {
+        await conn.releaseConnection();
+      }
 };
 
 const getOne = async(params) =>{
-    try{
-        const [rows] = await conn.query('SELECT * FROM item WHERE ?;', params); //otra opcion: params.id
-        return rows;
-
-    }catch(e){
-        const error ={
-            isError: true,
-            Message: `No se pudieron recuperar los datos por: ${e}`
-        }
+    try {
+        const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE ?;', params);
+        const response = {
+          isError: false,
+          data: rows
+        };
+    
+        return response;
+      } catch (e) {
+        const error = {
+          isError: true,
+          message: `No pudimos recuperar los datos.`
+        };
+    
         return error;
-    }
+      } finally {
+        await conn.releaseConnection();
+      }
 };
 
 const createOne = async(params) =>{
     try{
-        const [rows] = await conn.query('INSERT INTO item (collection, licence, name, description, discount, sku, price, dues, stock, sells,  img_front, img_back,  category_category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', params);
+        const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id) VALUES ?', [params]);
         return rows;
 
     }catch(e){
@@ -41,12 +49,14 @@ const createOne = async(params) =>{
             Message: `No se pudo agregar el nuevo registro debido a: ${e}`
         }
         return error;
-    }
+    }finally {
+        await conn.releaseConnection();
+      }
 };
 
 const deleteOne = async(params) =>{
     try{
-        const [rows] = await conn.query('DELETE FROM item WHERE ?;', params); //otra opcion: params.id
+        const [rows] = await conn.query('DELETE FROM product WHERE ?;', params); //otra opcion: params.id
         return rows;
 
     }catch(e){
@@ -55,13 +65,31 @@ const deleteOne = async(params) =>{
             Message: `No se pudo borrar el registro con id ${params} debido a: ${e}`
         }
         return error;
-    }
+    }finally {
+        await conn.releaseConnection();
+      }
 };
 
+const editOne = async (params, id) => {
+    try {
+      const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
+      return rows;
+    } catch (e) {
+      const error = {
+        isError: true,
+        message: `No pudimos modificar el item seleccionado, error: ${e}`
+      };
+      return error;
+    } finally {
+      await conn.releaseConnection();
+    }
+  };
+  
 
 module.exports={
     getAll,
     getOne,
     createOne,
     deleteOne,
+    editOne
 }

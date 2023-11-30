@@ -1,48 +1,67 @@
 //Aca se contiene la "lógica de negocio"
-const { getAll, getOne, createOne, deleteOne } = require('../models/itemModel');
+const { getAll, getOne, createOne, deleteOne, editOne } = require('../models/itemModel');
 
-const getAllItems =async(params)=>{
+const getAllItems =async()=>{
 
-    const data = await getAll(params);
+    const data = await getAll();
     return data;
 }
 
 const getOneItem =async(params)=>{
 
-    const data = await getOne({item_id: params});
+    const data = await getOne({product_id: params});
     return data;
 }
 
 const createOneItem =async(item, files)=>{
     const itemSchema= {
-     collection: item.collection,
-     licence: item.collection,
-     name: item.name,
-     description: item.description,
-     sku:  item.sku,
-     price:  item.price,
-     dues:  item.dues,
-     stock:  item.stock,
-     sells: 18,
-     discount: item.discount,
-     img_front:  '/' + files[0].filename,
-     img_back:  '/' + files[1].filename,
-     category_category_id: item.category_id
+    product_name: item.name,
+    product_description: item.description,
+    price: item.price,
+    stock: item.stock,
+    discount: item.discount,
+    sku: item.sku,
+    dues: item.dues,
+    image_front: '/'+files[0].filename,
+    image_back: '/'+files[1].filename,
+    licence_id: item.collection,
+    category_id: item.category
     }
 
-    const data = await createOne(Object.values(itemSchema));
+    const data = await createOne([Object.values(itemSchema)]);
     //console.log(data);
     return data;
 }
 
 const deleteOneItem =async(id)=>{
-    const result = await deleteOne({item_id: id});
+    const result = await deleteOne({product_id: id});
     return result;
 }
+
+const editOneItem = async (item, files, id) => {
+    const itemSchema = {
+      product_name: item.name,
+      product_description: item.description,
+      price: item.price,
+      stock: item.stock,
+      discount: item.discount,
+      sku: item.sku,
+      dues: item.dues,
+      image_front: '/'+files[0].filename,
+      image_back: '/'+files[1].filename,
+      licence_id: item.collection,
+      category_id: item.category
+    }
+  
+    const data = await editOne(itemSchema, {product_id: id});
+    //console.log(itemSchema);
+    return data;
+  }
 
 module.exports={
     getAllItems,
     getOneItem,
     createOneItem,
-    deleteOneItem
+    deleteOneItem,
+    editOneItem
 }

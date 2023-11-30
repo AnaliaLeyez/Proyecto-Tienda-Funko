@@ -16,7 +16,7 @@ Estructura del sitio Web:
 ├── /models
 │   ├── /categoryModel.js
 │   ├── /itemModel.js
-│   └── /collectionModel.js
+│   └── /licenceModel.js
 ├── /routes
 │   ├── /adminRoutes.js
 │   ├── /authRoutes.js
@@ -25,7 +25,7 @@ Estructura del sitio Web:
 ├── /services
 │   ├── /categoryServices.js
 │   ├── /itemServices.js
-│   └── /collectionServices.js
+│   └── /licenceServices.js
 ├── /utils
 │   └── /session.js
 ├── /views

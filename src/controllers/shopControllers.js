@@ -23,20 +23,25 @@ const shopcontrollers= {
 
 
     itemGET: async(req,res)=>{
-        let item = await getOneItem(req.params.id);
-        if(item.isError){
-            item = 'Hubo un error'
+        const item = await getOneItem(req.params.id);
+        const { data } = item;
+
+        if (!data[0]) {
+          res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
         }
+
         const items = await getAllItems();
 
         res.render("shop/item.ejs", 
         { 
             items,
-            item: item[0],
+            // item: item[0],
+            item: data[0],
             view: {
                 title: "SHOP | FUNKOSHOP"
             },
             slider:{ 
+                items,
                         title: "Productos relacionados"
                     }
         }
@@ -56,7 +61,5 @@ const shopcontrollers= {
     cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
 
 };
-//router.post('/item/:id/add', (req, res)=> res.send('Rout for add the current item to the shop cart'));
-//router.post('/cart', (req, res)=> res.send('Rout for go to checkout page'));
 
 module.exports = shopcontrollers;

@@ -1,8 +1,10 @@
-const fs = require ('fs'); //file system permite leer archivos
-const path = require('path');
+// const fs = require ('fs'); //file system permite leer archivos
+// const path = require('path'); //este y fs serian necesarios si trajera los datos desde el archivo json
 //Si no tuviera "Servicios" de intermediario haria:
 // const { getOne, deleteOne} = require('../models/itemsModels');
-const { getAllItems, getOneItem, createOneItem, deleteOneItem } = require('../services/itemServices');
+const { getAllItems, getOneItem, createOneItem, deleteOneItem, editOneItem } = require('../services/itemServices');
+const { getAllCategories } = require('../services/categorieServices');
+const { getAllLicences } = require('../services/licenceServices');
 
 const adminControllers= {
     admin: async(req,res)=>{
@@ -37,16 +39,33 @@ const adminControllers= {
         });
     },
 
-    editGET: (req, res)=>{
-        res.render("admin/edit.ejs",{
-        view:{
-            title: "ADMIN EDIT | FUNKOSHOP"
-        },
-    })
-    },
+    editGET: async (req, res) => {
+        const id = req.params.id;
+        const categories = await getAllCategories();
+        const licences = await getAllLicences();
+        const { data } = await getOneItem(id);
+        //console.log(categories, licences);
+        res.render('admin/edit.ejs', {
+          view: {
+            title: `Edit Product #${id} | Admin Funkoshop`
+          },
+          item: data[0],
+          categories,
+          licences
+        });
+      },
 
 
-    editPUT: (req, res)=> res.send('Rout PUT for Admin Edit'),
+    editPUT: async (req, res) => {
+        await editOneItem(req.body, req.files, req.params.id);
+        const items = await getAllItems();
+        res.render('admin/admin.ejs', {
+            items,
+            view:{
+                title: "ADMIN | FUNKOSHOP"
+            },
+        });
+      },
     
     delete: async(req, res)=>{
         // const result = await deleteOneItem(req.params.id);

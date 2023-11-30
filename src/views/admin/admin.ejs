@@ -1,6 +1,7 @@
 <%- include('../partials/header'); -%>
 <main id="admin" class="container">
     <h1>Listado de Productos</h1>
+    <span>AGREGAR<a href="/admin/create"><iconify-icon icon="bxs:plus-square" style="color: #f33;"></iconify-icon></a></span>
     <table class="table">
         <li class="table__item">
             <p><strong>ID</strong></p>
@@ -9,23 +10,24 @@
         </li>
         <% items.forEach( item => { %> 
             <li class="table__item">
-                <p><%= item.item_id %></p>
+                <p><%= item.product_id %></p>
                 <p class="table__item--id"><%= item.sku %></p>
-                <p class="table__item--name"><%= item.name %></p>
-                <a href="/admin/edit/<%= item.item_id %>" class="table__item--edit">
+                <p class="table__item--name"><%= item.product_name %></p>
+                <a href="/admin/edit/<%= item.product_id %>" class="table__item--edit">
                     <img class="cart__item-edit" src="/img/icons/edit_pencil.svg">
                 </a>
-                <!-- <a href="/admin/delete/< %= item.item_id %>?_method=DELETE" class="table__item--delete">
+                <a href="/admin/delete/<%= item.product_id %>" class="table__item--delete">
                     <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
-                </a> -->
-                <p>
-                <form action="/admin/delete/<%= item.item_id %>?_method=DELETE"  class="table__item--delete"
+                </a>
+                <!-- SI QUISIERA USAR METODO DELETE:
+                    <p>
+                <form action="/admin/delete/< %= item.product_id %>?_method=DELETE"  class="table__item--delete"
                     method="POST">
                     <button class="btn__borrar--item" type="submit">
                         <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
                     </button>
                 </form>
-                </p>
+                </p> -->
             </li>
         <% }); %> 
     </table>
