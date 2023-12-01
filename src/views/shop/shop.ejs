@@ -53,7 +53,9 @@
                     <article class="card-item">
                         <a class="card-item__link" href="/shop/item/<%= item.product_id %>">
                             <picture class="card-item__cover">
+                                <%if (new Date(item.create_time) > new Date('2023-11-28T00:00:00')){ %>
                                 <span class="card-item__tag">Nuevo</span>
+                                <% }; %>
                                 <img class="card-item__img--front" src="/img<%= item.image_front %>" alt="<%= item.product_description %>">
                                 <img class="card-item__img--back" src="/img<%= item.image_back %>" alt="<%= item.product_description %> En caja">
                                 </picture>

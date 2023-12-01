@@ -25,18 +25,12 @@ const shopcontrollers= {
     itemGET: async(req,res)=>{
         const item = await getOneItem(req.params.id);
         const { data } = item;
-
-        if (!data[0]) {
-          res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
-        }
-
         const items = await getAllItems();
 
         res.render("shop/item.ejs", 
         { 
             items,
-            // item: item[0],
-            item: data[0],
+            item: data[0] ? data[0] : false,
             view: {
                 title: "SHOP | FUNKOSHOP"
             },
