@@ -18,11 +18,15 @@ const adminControllers= {
         },
     })},
     
-    createGET: (req, res)=> {
+    createGET: async(req, res)=> {
+        const categories = await getAllCategories();
+        const licences = await getAllLicences();
         res.render("admin/create.ejs",{
             view:{
                 title: "ADMIN | FUNKOSHOP"
             },
+            categories,
+          licences
         })
     },
     

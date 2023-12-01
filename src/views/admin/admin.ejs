@@ -1,7 +1,11 @@
 <%- include('../partials/header'); -%>
 <main id="admin" class="container">
-    <h1>Listado de Productos</h1>
-    <span>AGREGAR<a href="/admin/create"><iconify-icon icon="bxs:plus-square" style="color: #f33;"></iconify-icon></a></span>
+    <section class="admin__list">
+    <div class="admin__header">
+        <h2>LISTADO DE PRODUCTOS</h2>
+        <span>AGREGAR<a href="/admin/create"><iconify-icon icon="bxs:plus-square"
+                    style="color: #f33;"></iconify-icon></a></span>
+    </div>
     <table class="table">
         <li class="table__item">
             <p><strong>ID</strong></p>
@@ -31,5 +35,6 @@
             </li>
         <% }); %> 
     </table>
+</section>
 </main>
 <%- include('../partials/footer'); -%>

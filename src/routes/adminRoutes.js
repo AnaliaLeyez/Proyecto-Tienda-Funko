@@ -1,7 +1,12 @@
 const express = require ('express');
 const router = express.Router();
-const admincontrollers= require('../controllers/adminControllers');
+//const {validateInput, loginValidations }= require('../middlewares/validator');
 const { uploadFile } = require('../middlewares/uploadFiles');
+const { isLogged } = require('../middlewares/login');
+const admincontrollers= require('../controllers/adminControllers');
+
+//capa de seguridad: solo puede ingresar a admin si está loggeado
+router.use(isLogged);
 
 router.get('/', admincontrollers.admin);
 router.get('/create', admincontrollers.createGET);

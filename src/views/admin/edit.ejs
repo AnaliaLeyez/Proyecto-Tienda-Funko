@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-<main id="create" class="container">
-  <h2 class="create__title">EDITAR ÍTEM</h2>
-  <form class="create__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+<main id="edit" class="container">
+  <h2 class="edit__title">EDITAR ÍTEM</h2>
+  <form class="edit__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
       <div class="form__flex">
           <div class="form__box--flex">
               <label class="form__label" for="category">Categoría:</label>
@@ -66,6 +66,16 @@
           <label class="form__label" for="imagenes">Imagenes:</label>
           <input type="file" name="imagenes" id="imagenes" multiple>
       </div>
+      <div class="form__box--flex">
+        <div class="edit__img">
+            <img src="/img<%= item.image_front %>" alt="<%= item.product_name %>">
+            <p class="edit__img-side">Frente</p>
+        </div>
+        <div class="edit__img">
+            <img src="/img<%= item.image_back %>" alt="<%= item.product_name %> en caja">
+            <p class="edit__img-side">Dorso</p>
+        </div>
+    </div>
       <div class="form__flex">
           <input class="form__btn btn btn--primary btn--large" type="submit" value="Editar Producto">
           <input class="form__btn btn btn--primary btn--large" type="reset" value="Limpiar">

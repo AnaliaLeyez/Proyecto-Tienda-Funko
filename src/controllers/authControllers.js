@@ -1,6 +1,7 @@
+//de momento solo existe el siguiente usuario con acceso al admin:
 const userCredentials = {
-    email: 'analia@gmail.com',
-    password: 'ana123'
+    email: process.env.ADMIN_USER,
+    password: process.env.ADMIN_PASS
   }
 
 const authControllers= {

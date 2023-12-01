@@ -1,3 +1,7 @@
+#admin {
+    margin: var(--spacing-68) auto;
+}
+
 #admin .table {
     display: flex;
     flex-direction: column;
@@ -6,9 +10,29 @@
     gap: 2rem;
 }
 
+.admin__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+}
 
-#admin h1 {
-    margin: 2rem 0;
+.admin__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-24);
+}
+
+.admin__header h2 {
+    font-size: var(--font-jumbo) ;
+}
+
+.admin__header span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    font-size: var(--font-small);
+    font-weight: 700;
 }
 
 .table__item {
