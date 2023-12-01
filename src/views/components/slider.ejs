@@ -13,9 +13,9 @@
                             <%if (item.stock <=6){ %>
                                 <span class="card-item__ultimosStock">Ultimos en stock</span>
                                 <% }; %>
-                            <img class="card-item__img--front" src="/img/<%= item.image_front %>"
+                            <img class="card-item__img--front" src="/img<%= item.image_front %>"
                                 alt="<%= item.product_description %>">
-                            <img class="card-item__img--back" src="/img/<%= item.image_back %>"
+                            <img class="card-item__img--back" src="/img<%= item.image_back %>"
                                 alt="<%= item.product_description %>">
                         </picture>
                         <div class="card-item__content">

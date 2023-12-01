@@ -107,7 +107,12 @@ h3{
     height: auto;
 }
 
-
+#acuPriceItem::before, 
+#cart__subtot::before,
+#cart__envio::before,
+#cart__total::before{
+content: "$";
+}
 /*SECCION RESUMEN */
 .cart__title-overview{
     align-self: flex-end;

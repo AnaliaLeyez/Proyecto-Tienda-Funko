@@ -20,7 +20,7 @@
                     <div>
                         <h3>BABY YODA BLUEBALL</h3>
                         <p>STAR WARS</p>
-                        <p>precio: $ 1799,99</p>
+                        <p>precio unitario: $ 1799,99</p>
                     </div>
                 </div>
                 <div class="quantity__container">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="priceAndDelet__container">
-                    <span>$3599,98</span>
+                    <span id="acuPriceItem">0</span>
                     <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
                 </div>
             </article>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="quantity__container">
-                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
+                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="1">
                     <div class="item__cart--btn">
                         <button id="subtract" class="item__quantity" type="button">-</button>
                         <button id="add" class="item__quantity" type="button">+</button>
@@ -71,10 +71,10 @@
                     <p>TOTAL</p>
                 </div>
                 <div class="cart__details__checkoutNumbers">
-                    <p class="">3</p>
-                    <p class="">$ 5.399,97</p>
-                    <p class="text-borderBottom">$ 0,00</p>
-                    <p>$5399,97</p>
+                    <p id="cart__cantElemCheckout">1</p>
+                    <p id="cart__subtot"> 1.799.99</p>
+                    <p id="cart__envio" class="text-borderBottom"> 50.00</p>
+                    <p id="cart__total">1849.99</p>
                 </div>
             </div>
             <h3 class="cart__checkout">IR A PAGAR</h3>
