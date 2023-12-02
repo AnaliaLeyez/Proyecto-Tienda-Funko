@@ -10,6 +10,12 @@
     gap: 2rem;
 }
 
+.admin__hello{
+    text-align: center;
+    font-size: var(--font-jumbo);
+    color: var(--secondary-solid);
+}
+
 .admin__list {
     display: flex;
     flex-direction: column;

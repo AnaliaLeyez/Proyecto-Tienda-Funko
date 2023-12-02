@@ -16,6 +16,8 @@ const adminControllers= {
         view:{
             title: "ADMIN | FUNKOSHOP"
         },
+        userName: req.session.nombre,
+        userLastname: req.session.lastname
     })},
     
     createGET: async(req, res)=> {

@@ -1,5 +1,6 @@
  const fs = require ('fs'); //file system permite leer archivos
  const path = require('path'); //este y fs serian necesarios si trajera los datos desde el archivo json
+ var nodemailer= require('nodemailer');
 //Si no tuviera "Servicios" de intermediario haria:
 //const { getOne} = require('../models/itemsModels');
 const { getAllItems} = require('../services/itemServices');
@@ -35,7 +36,28 @@ const mainControllers= {
         },
     }),
 
-    contactPOST: (req,res)=>{
+    contactPOST: async(req,res)=>{
+        var nombre=req.body.name;
+        var email=req.body.emailAdd;
+        var mensaje=req.body.message;
+      
+        var obj = {
+          to: 'any15015@gmail.com',
+          subject: 'Contacto por Tienda Funko Pop',
+          html: nombre + ' se contactó a través de la web Funko y requiere más información a este correo: ' + email + ". <br> Además dejó este mensaje: " + mensaje
+        }
+      
+        var transport =nodemailer.createTransport({
+          host: process.env.SMTP_HOST,
+          port: process.env.SMTP_PORT,
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+          }
+        });
+      
+        var info= await transport.sendMail(obj);
+      
     res.redirect("/home?sendForm=ok")
     },
     
