@@ -22,7 +22,10 @@ const mainControllers= {
         },
         slider:{
             title: "Últimos lanzamientos"
-        }
+        },
+        // message: req.query.message === 'logout' ? 'Sesión finalizada correctamente' : ''
+        message: req.query.message === 'logout' ? 'Sesión finalizada correctamente' : '',
+        sendForm: req.query.sendForm === 'ok' ? 'Mensaje enviado correctamente' : ''
     })},
 
     contact: (req, res)=> 
@@ -31,6 +34,10 @@ const mainControllers= {
             title: "CONTACT | FUNKOSHOP"
         },
     }),
+
+    contactPOST: (req,res)=>{
+    res.redirect("/home?sendForm=ok")
+    },
     
     about: (req, res)=> res.send('Rout for about view'),
     faqs: (req, res)=> res.send('Rout for faqs view')

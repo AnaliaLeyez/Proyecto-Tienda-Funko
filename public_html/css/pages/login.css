@@ -12,6 +12,10 @@
     font-size: var(--font-jumbo);
 }
 
+.login__failed{
+    text-align: center;
+    color: var(--primary-solid);
+}
 .login__form {
     margin: auto;
     display: flex;

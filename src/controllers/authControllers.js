@@ -10,6 +10,7 @@ const authControllers= {
         view:{
             title: "LOGIN | FUNKOSHOP"
         },
+        message: req.query.message === 'invalid' ? 'Usuario o contraseña incorrectos' : '',
     })},
     
     loginPOST:  (req, res) => {
@@ -23,8 +24,7 @@ const authControllers= {
           res.locals.isLogged = true;
           return res.redirect('/admin');
         }
-    
-        return res.status(401).send('Credenciales inválidas');
+        return res.redirect('/auth/login?message=invalid');
       },
 
     registerGET: (req, res)=> {
@@ -38,7 +38,7 @@ const authControllers= {
     
     logout: (req, res) => {
     req.session.isLogged = false;
-    res.send('Sesión finalizada con éxito.')
+    res.redirect('/home?message=logout');
   },
 }
 

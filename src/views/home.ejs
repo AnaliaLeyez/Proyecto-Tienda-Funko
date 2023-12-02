@@ -26,5 +26,12 @@
 
         <%- include('./components/slider') %>
     </main>
+    
+    <%if(message){%>
+        <script>alert("<%= message %>")</script>
+        <%} %>
 
+    <%if(sendForm){%>
+        <script>alert("<%= sendForm %>")</script>
+    <%} %>
     <%- include('./partials/footer') %>
