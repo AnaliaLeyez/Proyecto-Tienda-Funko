@@ -1,7 +1,7 @@
 const { conn } = require('../config/conn'); //importo la conexion
 
 //Aca requiero la tabla item de la BD
-const getAll = async() =>{
+const getAllByDate = async() =>{
     try{
         const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id ORDER BY product.create_time DESC;');
         return rows;
@@ -15,6 +15,22 @@ const getAll = async() =>{
     } finally {
         await conn.releaseConnection();
       }
+};
+
+const getAllByID = async() =>{
+  try{
+      const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id ORDER BY product.product_id ASC;');
+      return rows;
+
+  }catch(e){
+      const error ={
+          isError: true,
+          Message: `No se pudieron recuperar los datos de Producto por: ${e}`
+      };
+      return error;
+  } finally {
+      await conn.releaseConnection();
+    }
 };
 
 const getOne = async(params) =>{
@@ -87,7 +103,8 @@ const editOne = async (params, id) => {
   
 
 module.exports={
-    getAll,
+    getAllByDate,
+    getAllByID,
     getOne,
     createOne,
     deleteOne,

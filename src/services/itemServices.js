@@ -1,9 +1,15 @@
 //Aca se contiene la "lógica de negocio"
-const { getAll, getOne, createOne, deleteOne, editOne } = require('../models/itemModel');
+const { getAllByDate, getAllByID, getOne, createOne, deleteOne, editOne } = require('../models/itemModel');
 
-const getAllItems =async()=>{
+const getAllItemsByDate =async()=>{
 
-    const data = await getAll();
+    const data = await getAllByDate();
+    return data;
+}
+
+const getAllItemsByID =async()=>{
+
+    const data = await getAllByID();
     return data;
 }
 
@@ -29,7 +35,6 @@ const createOneItem =async(item, files)=>{
     }
 
     const data = await createOne([Object.values(itemSchema)]);
-    //console.log(data);
     return data;
 }
 
@@ -54,12 +59,12 @@ const editOneItem = async (item, files, id) => {
     }
   
     const data = await editOne(itemSchema, {product_id: id});
-    //console.log(itemSchema);
     return data;
   }
 
 module.exports={
-    getAllItems,
+    getAllItemsByDate,
+    getAllItemsByID,
     getOneItem,
     createOneItem,
     deleteOneItem,

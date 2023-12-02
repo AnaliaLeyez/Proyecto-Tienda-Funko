@@ -1,4 +1,4 @@
-const { getOneUser } = require('../services/userServices');
+const { getOneUser, createOneUser } = require('../services/userServices');
 
 //usuario hardcodeado:
 // const userCredentials = {
@@ -13,6 +13,7 @@ const authControllers= {
             title: "LOGIN | FUNKOSHOP"
         },
         message: req.query.message === 'invalid' ? 'Usuario o contraseña incorrectos' : '',
+        newUser: req.query.newUser == 'true' ? 'Perfecto! Ya te registramos en sistema! a continuación iniciá sesión' : ''
     })},
     
     //Si fuera con datos hardcodeados:
@@ -56,9 +57,16 @@ const authControllers= {
         view:{
             title: "REGISTER | FUNKOSHOP"
         },
+        pass: req.query.pass == 'wrong'? 'Las contraseñas no coinciden' : '',
     })},
 
-    registerPOST: (req, res)=> res.send('Rout POST register'),
+    registerPOST: async(req, res)=> {
+      if(req.body.password==req.body.repassword){
+        newuser = await createOneUser(req.body);
+        return res.redirect('/auth/login?newUser=true');
+      }
+        return res.redirect('/auth/register?pass=wrong');
+    },
     
     logout: (req, res) => {
     req.session.isLogged = false;

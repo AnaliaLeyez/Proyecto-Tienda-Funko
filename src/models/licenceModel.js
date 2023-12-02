@@ -12,7 +12,9 @@ const getAll = async() =>{
             Message: `No se pudieron recuperar los datos de Licence por: ${e}`
         }
         return error;
-    }  
+    } finally {
+        await conn.releaseConnection();
+      } 
 };
 
 module.exports={

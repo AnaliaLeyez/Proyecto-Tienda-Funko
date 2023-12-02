@@ -3,6 +3,9 @@
 <main>
     <section id="login" class="container">
         <h2 class="login__title">INGRESAR A MI CUENTA</h2>
+        <% if(newUser) { %>
+            <h2 class="register__title"> <%= newUser %></h2>
+            <% } %>
         <%if(message){%>
             <h1 class="login__failed"> <%= message %> </h1>
             <%} %>

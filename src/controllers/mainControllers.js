@@ -3,7 +3,7 @@
  var nodemailer= require('nodemailer');
 //Si no tuviera "Servicios" de intermediario haria:
 //const { getOne} = require('../models/itemsModels');
-const { getAllItems} = require('../services/itemServices');
+const { getAllItemsByDate} = require('../services/itemServices');
 const { getAllLicences} = require('../services/licenceServices');
 
 
@@ -12,7 +12,7 @@ const mainControllers= {
         //Si no tuviera BD:
         // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         // const colecciones = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/licences.json')));
-        const items = await getAllItems();
+        const items = await getAllItemsByDate();
         const colecciones = await getAllLicences();
         
         res.render("home.ejs",{
@@ -24,7 +24,6 @@ const mainControllers= {
         slider:{
             title: "Últimos lanzamientos"
         },
-        // message: req.query.message === 'logout' ? 'Sesión finalizada correctamente' : ''
         message: req.query.message === 'logout' ? 'Sesión finalizada correctamente' : '',
         sendForm: req.query.sendForm === 'ok' ? 'Mensaje enviado correctamente' : ''
     })},

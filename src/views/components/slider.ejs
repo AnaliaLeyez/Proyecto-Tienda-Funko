@@ -7,7 +7,7 @@
                 <article class="card-item">
                     <a class="card-item__link" href="/shop/item/<%=item.product_id%>">
                         <picture class="card-item__cover">
-                            <%if (new Date(item.create_time) > new Date('2023-11-28T00:00:00')){ %>
+                            <%if (new Date(item.create_time) > new Date('2023-10-26T00:00:00')){ %>
                             <span class="card-item__nuevo">Nuevo</span>
                             <% }; %>
                             <%if (item.stock <=6){ %>

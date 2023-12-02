@@ -4,7 +4,10 @@
             <p class="register__subtitle">Nos alegra sumarte a nuestro mundo Funko</p>
             <h2 lass="register__title">A continuación crea tu cuenta y comienza a incrementar tu colección:</h2>
         </div>
-        <form class="register__form" action="/register" method="POST" enctype="application/x-www-form-urlencoded">
+        <% if(pass) { %>
+            <h2 class="register__title"> <%= pass %></h2>
+            <% } %>
+        <form class="register__form" action="/auth/register" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="form__box--grid">
                 <label class="form__label" for="name">Nombre:</label>
                 <input class="form__input" type="text" name="name" id="name" placeholder="nombre" required>
@@ -23,7 +26,7 @@
             </div>
             <div class="form__box--grid">
                 <label class="form__label" for="repassword">Repite Contraseña:</label>
-                <input class="form__input" type="repassword" name="repassword" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                <input class="form__input" type="password" name="repassword" id="repassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
             </div>
             <div class="form__submission">
                 <input class="form__btn btn btn--primary btn--large" type="submit" value="Registrar">

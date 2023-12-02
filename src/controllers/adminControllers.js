@@ -2,7 +2,7 @@
 // const path = require('path'); //este y fs serian necesarios si trajera los datos desde el archivo json
 //Si no tuviera "Servicios" de intermediario haria:
 // const { getOne, deleteOne} = require('../models/itemsModels');
-const { getAllItems, getOneItem, createOneItem, deleteOneItem, editOneItem } = require('../services/itemServices');
+const { getAllItemsByID, getOneItem, createOneItem, deleteOneItem, editOneItem } = require('../services/itemServices');
 const { getAllCategories } = require('../services/categorieServices');
 const { getAllLicences } = require('../services/licenceServices');
 
@@ -10,7 +10,7 @@ const adminControllers= {
     admin: async(req,res)=>{
         //Opcion sin BD:
         // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
-        const items = await getAllItems();
+        const items = await getAllItemsByID();
         res.render("admin/admin.ejs",{
         items,
         view:{
@@ -34,15 +34,7 @@ const adminControllers= {
     
     createPOST: async(req, res)=>{
         await createOneItem(req.body, req.files);
-        
-        const items = await getAllItems();
-
-        res.render('admin/admin.ejs', {
-            items,
-            view:{
-                title: "ADMIN | FUNKOSHOP"
-            },
-        });
+        res.redirect('/admin');;
     },
 
     editGET: async (req, res) => {
@@ -64,13 +56,7 @@ const adminControllers= {
 
     editPUT: async (req, res) => {
         await editOneItem(req.body, req.files, req.params.id);
-        const items = await getAllItems();
-        res.render('admin/admin.ejs', {
-            items,
-            view:{
-                title: "ADMIN | FUNKOSHOP"
-            },
-        });
+        res.redirect('/admin');
       },
     
     delete: async(req, res)=>{

@@ -61,6 +61,10 @@
     font-size: var(--font-small);
 }
 
+.card-item__price::before{
+    content: "$";
+}
+
 .card-item__promo{
     font-size: var(--font-xsmall);
     color: var(--secondary-solid);
