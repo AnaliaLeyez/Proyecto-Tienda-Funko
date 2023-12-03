@@ -42,7 +42,6 @@ const adminControllers= {
         const categories = await getAllCategories();
         const licences = await getAllLicences();
         const { data } = await getOneItem(id);
-        //console.log(categories, licences);
         res.render('admin/edit.ejs', {
           view: {
             title: `Edit Product #${id} | Admin Funkoshop`

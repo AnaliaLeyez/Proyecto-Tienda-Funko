@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 <main id="edit" class="container">
   <h2 class="edit__title">EDITAR ÍTEM</h2>
-  <form class="edit__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <form class="edit__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
       <div class="form__flex">
           <div class="form__box--flex">
               <label class="form__label" for="category">Categoría:</label>
               <select class="form__select" name="category" id="category" required>
-                  <option value="" disabled selected hidden>Seleccionar</option>
+                <option value="<%= item.category_id %>" selected hidden><%= item.category_name %></option>
                   <% categories.forEach((category, i) => { %>
                     <option value="<%= i+1%>"><%= category.category_name%></option>
                   <% }); %>
@@ -15,7 +15,7 @@
           <div class="form__box--flex">
               <label class="form__label" for="collection">Licencia:</label>
               <select class="form__select" name="collection" id="collection" required>
-                  <option value="" disabled selected hidden>Seleccionar</option>
+                  <option value="<%= item.licence_id %>" selected hidden><%= item.licence_name %></option>
                   <% licences.forEach((licence, i) => { %>
                     <option value="<%= i+1%>"><%= licence.licence_name%></option>
                   <% }); %>
@@ -46,7 +46,7 @@
       <div class="form__flex">
           <div class="form__box--flex">
               <label class="form__label" for="discount">Descuento:</label>
-              <div class="form__input--wrapper"><input class="form__input" type="text" name="discount" id="discount" value="<%=item.discount%>" required><span>%</span></div>
+              <div class="form__input--wrapper"><input class="form__input" type="text" name="discount" id="discount" value="<%=item.discount%>" required></div>
           </div>
           <div class="form__box--flex">
               <label class="form__label" for="dues">Cuotas:</label>
@@ -76,6 +76,7 @@
             <p class="edit__img-side">Dorso</p>
         </div>
     </div>
+    <div id="mensaje-error" style="color: red;"></div>
       <div class="form__flex">
           <input class="form__btn btn btn--primary btn--large" type="submit" value="Editar Producto">
           <input class="form__btn btn btn--primary btn--large" type="reset" value="Limpiar">

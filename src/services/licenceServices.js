@@ -7,6 +7,7 @@ const getAllLicences =async()=>{
     return data;
 }
 
+
 module.exports={
     getAllLicences
 }

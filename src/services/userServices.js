@@ -1,4 +1,4 @@
-const { getOne, createOne } = require('../models/userModel');
+const { getOne, createOne, findOne } = require('../models/userModel');
 
 const getOneUser =async(mail, pass)=>{
 
@@ -17,7 +17,13 @@ const createOneUser =async(newUser)=>{
     return data;
 }
 
+const findOneEmail= async(mail)=>{
+    const data = await findOne({email: mail});
+    return data;
+}
+
 module.exports={
     getOneUser,
-    createOneUser
+    createOneUser,
+    findOneEmail
 }

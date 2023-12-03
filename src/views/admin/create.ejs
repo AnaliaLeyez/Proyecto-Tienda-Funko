@@ -1,7 +1,7 @@
 <%- include('../partials/header'); -%>
     <section id="create" class="container">
         <h2>Ingresa los datos a continuación para CREAR un nuevo item:</h2>
-        <form class="create__form" action="/admin/create" method="POST" enctype="multipart/form-data">
+        <form class="create__form" action="/admin/create" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
             <div class="form__flex">
                 <div class="form__box--flex">
                     <label class="form__label" for="category">Categoría:</label>
@@ -65,6 +65,7 @@
                 <label class="form__label" for="imagenes">Imágenes:</label>
                 <input type="file" name="imagenes" id="imagenes" multiple>
             </div>
+            <div id="mensaje-error" style="color: red;"></div>
             <div class="form__flex">
                 <input class="form__btn btn btn--primary btn--large" type="submit" value="Agregar Producto">
                 <input class="form__btn btn btn--primary btn--large" type="reset" value="Limpiar">

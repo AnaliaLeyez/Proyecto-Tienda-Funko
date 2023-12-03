@@ -39,7 +39,24 @@ const createOne = async(params)=>{
       }
 }
 
+const findOne= async(params)=>{
+    try{
+        const [rows] = await conn.query('SELECT * FROM user WHERE ?', params);
+        return rows;
+
+    }catch(e){
+        const error ={
+            isError: true,
+            Message: `No encontramos usuario con el mail solicitado. Error: ${e}`
+        }
+        return error;
+    }  finally {
+        await conn.releaseConnection();
+      }
+}
+
 module.exports={
     getOne,
-    createOne
+    createOne,
+    findOne
 }

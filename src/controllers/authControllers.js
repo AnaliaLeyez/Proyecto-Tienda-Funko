@@ -1,4 +1,4 @@
-const { getOneUser, createOneUser } = require('../services/userServices');
+const { getOneUser, createOneUser, findOneEmail } = require('../services/userServices');
 
 //usuario hardcodeado:
 // const userCredentials = {
@@ -58,9 +58,14 @@ const authControllers= {
             title: "REGISTER | FUNKOSHOP"
         },
         pass: req.query.pass == 'wrong'? 'Las contraseñas no coinciden' : '',
+        duplicated: req.query.duplicated == 'true' ? 'Este mail ya está registrado' : '',
     })},
 
     registerPOST: async(req, res)=> {
+      const duplicated = await findOneEmail(req.body.email);
+      if(duplicated){
+        return res.redirect('/auth/register?duplicated=true');
+      }
       if(req.body.password==req.body.repassword){
         newuser = await createOneUser(req.body);
         return res.redirect('/auth/login?newUser=true');
