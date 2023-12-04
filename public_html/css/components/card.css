@@ -4,7 +4,7 @@
     position: relative;
 }
 
-.card-item__tag{
+.card-item__nuevo{
     position: absolute;
     top:0;
     right: 0;
@@ -14,6 +14,18 @@
     color:var(--light-font-solid);
     padding: var(--spacing-8) var(--spacing-12);
 }
+
+.card-item__ultimosStock{
+    position: absolute;
+    top:0;
+    left: 0;
+    font-size: var(--font-xsmall);
+    text-transform: uppercase;
+    background-color: var(--dark-bg-solid);
+    color:var(--light-font-solid);
+    padding: var(--spacing-8) var(--spacing-12);
+}
+
 .card-item__cover img{
     animation: fade .7s;
 }
@@ -47,6 +59,10 @@
 
 .card-item__price{
     font-size: var(--font-small);
+}
+
+.card-item__price::before{
+    content: "$";
 }
 
 .card-item__promo{

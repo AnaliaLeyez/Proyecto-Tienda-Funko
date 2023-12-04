@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= view.title %></title>
+    <meta name="author" content="Analía Leyez" />
+    <meta name="description" content="Sitio Web de tienda de productos Funko online" />
+    <!-- icono -->
+    <link rel="icon" type="image/x-icon" href="/img/branding/isotype.svg" />
+    <title> <%= view.title %> </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" href="/css/index.css">
 </head>
-<body>
 <header class="page-header"> <!--Inicio Header-->
     <nav class="navbar container">
         <picture class="navbar__logo">
@@ -23,7 +27,7 @@
                     <iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
                 <ul class="submenu">
                     <li class="submenu__item">
-                        <a href="" class="submenu__link">Funkos</a>
+                        <a href="/shop" class="submenu__link">Funkos</a>
                     </li>
                     <li class="submenu__item">
                         <a href="" class="submenu__link">Remeras</a>
@@ -33,12 +37,25 @@
                     </li>
                 </ul>
             </li>
+            <% if (locals.isLogged) { %>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/admin">ADMIN</a>
+                </li>
+                <% } %>
             <li class="navbar__item">
-                <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+                <a class="navbar__link" href="/contact">CONTACTO</a>
             </li>
-            <li class="navbar__item">
-                <a class="navbar__link" href="/admin/login">LOGIN</a>
-            </li>
+            <% if (locals.isLogged) { %>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/auth/logout">LOGOUT</a>
+                </li>
+                <% } %>
+                <% if (!locals.isLogged) { %>
+                    <li class="navbar__item">
+                        <a class="navbar__link" href="/auth/login">LOGIN</a>
+                    </li>
+                    <% } %>
+            
             <li class="navbar__item">
                 <a class="navbar__cart" href="/shop/cart">
                     <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
@@ -47,5 +64,3 @@
         </ul>
     </nav>
 </header> <!--Fin Header-->
-</body>
-</html>
