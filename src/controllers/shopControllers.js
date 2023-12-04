@@ -49,10 +49,23 @@ const shopcontrollers= {
         view: {
             title: "SHOP | FUNKOSHOP"
         },
+        item: false,
     }
     ),
 
-    cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
+    // cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
+    cartPOST: async(req, res)=> {
+        console.log(req.body);
+        const { data } = await getOneItem(req.body.productoID);
+        
+        res.render("shop/cart.ejs", 
+    {
+        view: {
+            title: "SHOP | FUNKOSHOP"
+        },
+        item: data[0]
+    }
+    )},
 
 };
 

@@ -7,9 +7,6 @@
         <% if(pass) { %>
             <h2 class="register__title"> <%= pass %></h2>
         <% } %>
-        <% if(duplicated) { %>
-            <h2 class="register__title"> <%= duplicated %></h2>
-        <% } %>
         <form class="register__form" action="/auth/register" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="form__box--grid">
                 <label class="form__label" for="name">Nombre:</label>

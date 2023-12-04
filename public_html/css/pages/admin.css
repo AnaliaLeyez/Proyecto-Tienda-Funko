@@ -2,6 +2,26 @@
     margin: var(--spacing-68) auto;
 }
 
+.admin__search {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-36);
+}
+
+.admin__icon {
+    font-size: var(--font-xlarge);
+}
+
+.admin__search-bar {
+    font-size: var(--font-medium);
+    padding: var(--spacing-8) var(--spacing-8);
+    border: 2px solid var(--dark-solid);
+    border-radius: 6px;
+    outline: none;
+    flex: 0 0 35%;
+}
+
 #admin .table {
     display: flex;
     flex-direction: column;

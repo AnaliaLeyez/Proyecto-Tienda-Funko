@@ -46,7 +46,7 @@
       <div class="form__flex">
           <div class="form__box--flex">
               <label class="form__label" for="discount">Descuento:</label>
-              <div class="form__input--wrapper"><input class="form__input" type="text" name="discount" id="discount" value="<%=item.discount%>" required></div>
+              <div class="form__input--wrapper"><input class="form__input" type="text" name="discount" id="discount" value="<%=item.discount%>" required><span>%</span></div>
           </div>
           <div class="form__box--flex">
               <label class="form__label" for="dues">Cuotas:</label>
@@ -58,7 +58,7 @@
                   <option value="12">12 cuotas s/ interés</option>
                   <option value="18">18 cuotas s/ interés</option>
                   <option value="24">24 cuotas s/ interés</option>
-                  <option value="<%=item.dues%>" selected><%=item.dues%> cuotas s/ interés</option>
+                  <option value="<%=item.dues%>" selected hidden><%=item.dues%> cuotas s/ interés</option>
               </select>
           </div>
       </div>
