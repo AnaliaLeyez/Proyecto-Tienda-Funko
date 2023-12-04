@@ -34,6 +34,10 @@
     padding: var(--spacing-8);
 }
 
+.search__icon {
+    font-size: var(--font-xlarge);
+}
+
 .filters__price div {
     margin-top: var(--spacing-12);
     display: flex;
@@ -90,7 +94,7 @@
 
 .shop__items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: var(--spacing-28);
 }
 
@@ -140,6 +144,9 @@
 @media (max-width:478px) {
     #shop{
         flex-direction: column;
+    }
+    .shop__items{
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 

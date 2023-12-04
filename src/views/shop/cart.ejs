@@ -24,43 +24,48 @@
                     </div>
                 </div>
                 <div class="quantity__container">
-                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
+                    <input id="quantityCart_input" class="item__input" type="text" name="quantity" placeholder="1">
                     <div class="item__cart--btn">
-                        <button id="subtract" class="item__quantity" type="button">-</button>
-                        <button id="add" class="item__quantity" type="button">+</button>
+                        <button id="subtractCart" class="item__quantity" type="button">-</button>
+                        <button id="addCart" class="item__quantity" type="button">+</button>
                     </div>
                 </div>
                 <div class="priceAndDelet__container">
-                    <span id="acuPriceItem">0</span>
+                    <span id="acuPriceItem"> 1.799.99</span>
                     <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
                 </div>
             </article>
-            <article class="cart__item">
-                <div class="cart__item__info">
-                    <picture class="cart__item-img">
-                        <img src="/img/pokemon/pidgeotto-1.webp"
-                            alt="Figura coleccionable Funko de Pidgeotto de Pokemon">
-                    </picture>
-                    <div>
-                        <h3>PIDGEOTTO</h3>
-                        <p>POKEMON</p>
-                        <p>precio unitario: $ 1799,99</p>
+
+            <% if (item) { %>
+                <article class="cart__item">
+                    <div class="cart__item__info">
+                        <picture class="cart__item-img">
+                            <img src="/img<%=item.image_front%>"
+                                alt="<%=item.product_description%>">
+                        </picture>
+                        <div>
+                            <h3><%=item.product_name%></h3>
+                            <p><%=item.licence_name%></p>
+                            <p>precio unitario: $ <%=item.price%></p>
+                        </div>
                     </div>
-                </div>
-                <div class="quantity__container">
-                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="1">
-                    <div class="item__cart--btn">
-                        <button id="subtract" class="item__quantity" type="button">-</button>
-                        <button id="add" class="item__quantity" type="button">+</button>
+                    <div class="quantity__container">
+                        <input id="quantityCart_input" class="item__input" type="text" name="quantity" placeholder="1">
+                        <div class="item__cart--btn">
+                            <button id="subtractCart" class="item__quantity" type="button">-</button>
+                            <button id="addCart" class="item__quantity" type="button">+</button>
+                        </div>
                     </div>
-                </div>
-                <div class="priceAndDelet__container">
-                    <span>$1799,99</span>
-                    <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
-                </div>
-            </article>
+                    <div class="priceAndDelet__container">
+                        <span id="acuPriceItem"><%=item.price%></span>
+                        <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
+                    </div>
+                </article>
+                <% } %>
+
         </section>
 
+        
         <section class="cart__overview">
             <h2 class="cart__title cart__title-overview">RESUMEN</h2>
             <div class="cart__details__checkout">

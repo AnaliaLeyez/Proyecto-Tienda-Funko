@@ -7,6 +7,14 @@
         <span>AGREGAR<a href="/admin/create"><iconify-icon icon="bxs:plus-square"
                     style="color: #f33;"></iconify-icon></a></span>
     </div>
+    <div class="admin__search">
+        <form class="form__box--flex" action="/admin" method="get">
+            <input class="admin__search-bar" type="search" id="search" placeholder="cod, name or licence" aria-label="Search" name="q" <%if(q){ %> value="<%= q %>" <% }%> >
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                <iconify-icon class="admin__icon" icon="charm:search"></iconify-icon>
+            </button>
+          </form>
+    </div>
     <table class="table">
         <li class="table__item">
             <p><strong>ID</strong></p>
@@ -14,6 +22,9 @@
             <p class="table__item--name"><strong>Nombre del Producto</strong></p>
             <p class="table__item--licence"><strong>Licencia</strong></p>
         </li>
+        <%if(items.length ==0){ %>
+            <span class="container table__item--name">No hay coincidencias para "<%= q %>"</span>
+            <% }%>
         <% items.forEach( item => { %> 
             <li class="table__item">
                 <p><%= item.product_id %></p>

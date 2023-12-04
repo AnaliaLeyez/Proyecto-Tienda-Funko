@@ -1,5 +1,5 @@
 //Aca se contiene la "lógica de negocio"
-const { getAllByDate, getAllByID, getOne, createOne, deleteOne, editOne } = require('../models/itemModel');
+const { getAllByDate, getAllByID, getOne, createOne, deleteOne, editOne, findMatch } = require('../models/itemModel');
 
 const getAllItemsByDate =async()=>{
 
@@ -62,11 +62,17 @@ const editOneItem = async (item, files, id) => {
     return data;
   }
 
+const findMatchItem = async(search)=>{
+    const data = await findMatch(search);
+    return data;
+}
+
 module.exports={
     getAllItemsByDate,
     getAllItemsByID,
     getOneItem,
     createOneItem,
     deleteOneItem,
-    editOneItem
+    editOneItem,
+    findMatchItem
 }

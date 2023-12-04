@@ -4,12 +4,20 @@
     <main id="shop" class="container">
         <aside class="shop__filters filters"> <!--INICIO ASIDE -->
             <div class="filters__search">
-                <label  class="filters__title" for="search">BUSCAR</label>
-                <input type="text" name="search" id="search" placeholder="item o categoría">
+                <!-- <label  class="filters__title" for="search">BUSCAR</label>
+                <input type="text" name="search" id="search" placeholder="item o categoría"> -->
+                <label  class="filters__title" for="search">BUSCAR</label>  
+                <form class="form__box--flex" action="/shop" method="get">
+                    <input type="search" id="search" name="q" placeholder="item o categoría"  <%if(q){ %> value="<%= q %>" <% }%>>
+                    <button class="btn" type="submit">
+                        <iconify-icon class="search__icon" icon="charm:search"></iconify-icon>
+                    </button>
+                  </form>
             </div>
             <div class="filters__order">
                 <label  class="filters__title" for="orderby">ORDERNAR POR</label>
                 <select name="orderby" id="orderby">
+                    <option value="dateDesc" selected hidden>Más recientes</option>
                     <option value="az">A-Z</option>
                     <option value="za">Z-A</option>
                     <option value="desc">Mayor precio</option>
@@ -48,6 +56,9 @@
 
         <section class="shop__content">
             <ul class="shop__items">
+                <%if(items.length ==0){ %>
+                    <span class="table__item--name">No hay coincidencias para "<%= q %>"</span>
+                    <% }%>
                 <% items.forEach(item => { %>
                 <li class="shop__item">
                     <article class="card-item">

@@ -32,7 +32,3 @@
     border-top: 2px solid var(--primary-solid);
     font-weight: 600;
 }
-
-.form__input--wrapper::after{
-    content: "%";
-}

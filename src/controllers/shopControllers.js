@@ -2,13 +2,14 @@
 // const path = require('path'); //este y fs serian necesarios si trajera los datos desde el archivo json
 //Si no tuviera "Servicios" de intermediario haria:
 //const { getOne} = require('../models/itemsModels');
-const { getAllItemsByDate, getOneItem } = require('../services/itemServices');
+const { getAllItemsByDate, getOneItem, findMatchItem } = require('../services/itemServices');
 
 const shopcontrollers= {
     shop: async(req,res) => {
         //Si no tuviera BD:
         // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
-        let items = await getAllItemsByDate();
+        const items = req.query.q === undefined ? await getAllItemsByDate() : await findMatchItem(req.query.q);
+        // const items = await getAllItemsByDate();
         if(items.isError){
             items = 'Hubo un error'
         }
@@ -18,6 +19,7 @@ const shopcontrollers= {
         view: {
             title: "SHOP | FUNKOSHOP"
         },
+        q: req.query.q
     }
     )},
 
@@ -49,10 +51,22 @@ const shopcontrollers= {
         view: {
             title: "SHOP | FUNKOSHOP"
         },
+        item: false,
     }
     ),
 
-    cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
+    // cartPOST: (req, res)=> res.send('Rout for go to checkout page with POST')
+    cartPOST: async(req, res)=> {
+        const { data } = await getOneItem(req.body.productoID);
+        
+        res.render("shop/cart.ejs", 
+    {
+        view: {
+            title: "SHOP | FUNKOSHOP"
+        },
+        item: data[0]
+    }
+    )},
 
 };
 

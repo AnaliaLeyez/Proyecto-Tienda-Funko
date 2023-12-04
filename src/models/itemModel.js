@@ -101,6 +101,24 @@ const editOne = async (params, id) => {
     }
   };
   
+ const findMatch= async(params)=>{
+    try {
+      const query = "SELECT product.*, category.category_name, licence.licence_name \
+    FROM (product LEFT JOIN category ON product.category_id = category.category_id) \
+    LEFT JOIN licence ON product.licence_id = licence.licence_id \
+    WHERE product_name like ? OR product_id like ? OR licence_name like ?";
+    const [rows] = await conn.query(query, ['%' + params + '%', '%' + params + '%', '%' + params + '%']);
+    return rows;
+    } catch (e) {
+      const error = {
+        isError: true,
+        message: `No pudimos hallar coincidencia, error: ${e}`
+      };
+      return error;
+    } finally {
+      await conn.releaseConnection();
+    }
+}
 
 module.exports={
     getAllByDate,
@@ -108,5 +126,6 @@ module.exports={
     getOne,
     createOne,
     deleteOne,
-    editOne
+    editOne,
+    findMatch
 }

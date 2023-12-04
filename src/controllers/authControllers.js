@@ -57,15 +57,24 @@ const authControllers= {
         view:{
             title: "REGISTER | FUNKOSHOP"
         },
-        pass: req.query.pass == 'wrong'? 'Las contraseñas no coinciden' : '',
-        duplicated: req.query.duplicated == 'true' ? 'Este mail ya está registrado' : '',
+        pass: 
+        req.query.pass == 'wrong'? 'Las contraseñas no coinciden' :
+        req.query.pass == 'short' ? 'La contraseña requiere minimo 6 caracteres' : 
+        req.query.pass == 'duplicated' ? 'Este mail ya está registrado' : '',
     })},
 
     registerPOST: async(req, res)=> {
       const duplicated = await findOneEmail(req.body.email);
-      if(duplicated){
-        return res.redirect('/auth/register?duplicated=true');
+      console.log(duplicated);
+      const passLength =req.body.password.length;
+      if(duplicated.length>0){
+        return res.redirect('/auth/register?pass=duplicated');
       }
+
+      if(passLength<6){
+        return res.redirect('/auth/register?pass=short');
+      }
+      
       if(req.body.password==req.body.repassword){
         newuser = await createOneUser(req.body);
         return res.redirect('/auth/login?newUser=true');
