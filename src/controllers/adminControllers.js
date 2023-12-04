@@ -11,7 +11,7 @@ const adminControllers= {
         //Opcion sin BD:
         // const items = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/items.json')));
         //veo si traigo todos los items o filtro por busqueda:
-        const items = req.query.q === undefined ? await getAllItemsByID() : await findMatchItem(req.query.q);
+        const items = req.query.q === undefined ? await getAllItemsByID() : await findMatchItem(req.query.q);  
         res.render("admin/admin.ejs",{
         items,
         view:{
@@ -36,7 +36,7 @@ const adminControllers= {
     
     createPOST: async(req, res)=>{
         await createOneItem(req.body, req.files);
-        res.redirect('/admin');;
+        res.redirect('/admin');
     },
 
     editGET: async (req, res) => {

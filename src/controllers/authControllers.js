@@ -65,13 +65,16 @@ const authControllers= {
 
     registerPOST: async(req, res)=> {
       const duplicated = await findOneEmail(req.body.email);
+      console.log(duplicated);
       const passLength =req.body.password.length;
+      if(duplicated.length>0){
+        return res.redirect('/auth/register?pass=duplicated');
+      }
+
       if(passLength<6){
         return res.redirect('/auth/register?pass=short');
       }
-      if(duplicated){
-        return res.redirect('/auth/register?pass=duplicated');
-      }
+      
       if(req.body.password==req.body.repassword){
         newuser = await createOneUser(req.body);
         return res.redirect('/auth/login?newUser=true');

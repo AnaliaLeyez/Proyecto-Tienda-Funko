@@ -26,6 +26,6 @@ quantityOne.addEventListener('input', () =>{
 function UpdateCart(){
     acuPriceOne.textContent = (Number(quantityOne.value) * 1799.99).toFixed(2);
     cantElemCheckout.textContent = Number(quantityOne.value);
-    cartSubtot.textContent = (Number(acuPriceOne.textContent) + 1799.99).toFixed(2);
+    cartSubtot.textContent = (Number(acuPriceOne.textContent)).toFixed(2);
     cartTotal.textContent = (Number(cartSubtot.textContent) + Number(cartEnvio.textContent)).toFixed(2);
 }

@@ -21,7 +21,7 @@
                 <form class="item__cart" action="/shop/cart" method="POST" enctype="application/x-www-form-urlencoded">
                     <input class="hidden" type="text" name="productoID" id="productoID" value="<%=item.product_id%>" required>
                     <button id="subtract" class="item__quantity" type="button">-</button>
-                    <input id="quantityItem" class="item__input" type="text" name="quantity" placeholder="0">
+                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
                     <button id="add" class="item__quantity" type="button">+</button>
                     <button class="item__submit btn btn--primary btn--medium" type="submit">Agregar al carrito</button>
                 </form>
