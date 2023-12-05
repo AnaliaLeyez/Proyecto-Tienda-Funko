@@ -34,3 +34,7 @@
 #register .form__terms {
     font-size: var(--font-small);
 }
+
+.register_errorMessage{
+    color: var(--primary-solid);
+}

@@ -11,8 +11,20 @@ function validarFormulario() {
             return false; // Detener el envío del formulario
         }
     }
-
     // Restablecer el mensaje de error si no hay problemas
     mensajeError.innerHTML = '';
     return true; // Permitir el envío del formulario
+}
+
+function validateForm() {
+    const checkbox = document.getElementById("agreeTerm");
+    const errorMessage = document.getElementById("register_errorMessage");
+
+    if (checkbox.checked) {
+        // El checkbox está seleccionado, puedes enviar el formulario
+        document.getElementById("registerForm").submit();
+    } else {
+        // El checkbox no está seleccionado, muestra un mensaje de error
+        errorMessage.textContent = "Para registrarte debés aceptar los Términos y Condiciones.";
+    }
 }

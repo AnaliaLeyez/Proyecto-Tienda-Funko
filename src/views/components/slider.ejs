@@ -2,14 +2,14 @@
     <h2 class="slider__title"><%= slider.title %></h2>
     <div class="glide__track" data-glide-el="track">
         <ul class="slider__items glide__slides">
-            <% items.forEach(item =>{ %>
+            <% items.filter(item => new Date(item.create_time) > new Date('2023-10-26T00:00:00')).forEach(item => { %>
                 <li class="slider__item glide__slide">
                 <article class="card-item">
                     <a class="card-item__link" href="/shop/item/<%=item.product_id%>">
                         <picture class="card-item__cover">
-                            <%if (new Date(item.create_time) > new Date('2023-10-26T00:00:00')){ %>
+                            <!-- < %if (new Date(item.create_time) > new Date('2023-10-26T00:00:00')){ %> -->
                             <span class="card-item__nuevo">Nuevo</span>
-                            <% }; %>
+                            <!-- < % }; %> -->
                             <%if (item.stock <=6){ %>
                                 <span class="card-item__ultimosStock">Ultimos en stock</span>
                                 <% }; %>
@@ -28,8 +28,6 @@
                 </article>
             </li>
             <% }); %>
-
-  
         </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">

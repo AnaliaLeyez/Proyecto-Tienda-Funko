@@ -7,7 +7,7 @@
         <% if(pass) { %>
             <h2 class="register__title"> <%= pass %></h2>
         <% } %>
-        <form class="register__form" action="/auth/register" method="POST" enctype="application/x-www-form-urlencoded">
+        <form class="register__form" id="registerForm" action="/auth/register" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="form__box--grid">
                 <label class="form__label" for="name">Nombre:</label>
                 <input class="form__input" type="text" name="name" id="name" placeholder="nombre" required>
@@ -29,12 +29,13 @@
                 <input class="form__input" type="password" name="repassword" id="repassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
             </div>
             <div class="form__submission">
-                <input class="form__btn btn btn--primary btn--large" type="submit" value="Registrar">
+                <input class="form__btn btn btn--primary btn--large" type="submit" onclick="validateForm()" value="Registrar">
                 <div class="form__terms">
-                    <input type="checkbox" name="" id="">
-                    <label for="">Acepto <a class="form__link" href="">Términos y Condiciones</a></label>
+                    <input type="checkbox" name="cbxAgreeTerm" id="agreeTerm">
+                    <label for="agreeTerm">Acepto <a class="form__link" href="">Términos y Condiciones</a></label>
                 </div>
             </div>
+            <p class="register_errorMessage" id="register_errorMessage"></p>
         </form>
     </section>
     <%- include('../partials/footer'); -%>
