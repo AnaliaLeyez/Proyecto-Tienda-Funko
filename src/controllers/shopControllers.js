@@ -68,6 +68,14 @@ const shopcontrollers= {
     }
     )},
 
+    comingSoon: (req, res)=> res.render("shop/comingSoon.ejs", 
+    {
+        view: {
+            title: "SHOP | FUNKOSHOP"
+        },
+    }
+    ),
+
 };
 
 module.exports = shopcontrollers;
